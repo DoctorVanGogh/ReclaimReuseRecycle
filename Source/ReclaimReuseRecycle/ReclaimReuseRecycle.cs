@@ -10,6 +10,8 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         public ReclaimReuseRecycle(ModContentPack content) : base(content) {
             HarmonyInstance harmony = HarmonyInstance.Create("DoctorVanGogh.ReclaimReuseRecycle");
             harmony.PatchAll(Assembly.GetExecutingAssembly());           
+
+            Log.Message("Initialized Reclaim Reuse Recycle...");
         }
     }
 }

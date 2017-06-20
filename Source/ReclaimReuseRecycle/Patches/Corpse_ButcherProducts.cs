@@ -5,6 +5,7 @@ using System.Text;
 using Harmony;
 using Verse;
 using Verse.Noise;
+using System.Linq;
 
 namespace DoctorVanGogh.ReclaimReuseRecycle {
 
@@ -14,86 +15,86 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
         // remove any parts to-be-returned before actual butchering takes place, so 'missing parts %' get's correct material amount
         public static void Prefix(Corpse __instance, ref object __state, Pawn butcher, float efficiency) {
-            RaceProperties race = __instance.InnerPawn.RaceProps;
+            ButcherState state = new ButcherState();
 
-            List<Thing> extras = new List<Thing>();
+            RaceProperties race = __instance.InnerPawn.RaceProps;
+            Pawn_HealthTracker healthTracker = __instance.InnerPawn.health;
+            HediffSet diffSet = healthTracker.hediffSet;
+
+
 
             // biologicals: check for any added parts/implants
             if (race.IsFlesh) {
-                // can't change body markup while enumerating - store changes
-                List<Hediff> modifications = new List<Hediff>();
-
-                foreach (Hediff hediff in __instance.InnerPawn.health.hediffSet.hediffs) {
-                    if (hediff is Hediff_Implant || hediff is Hediff_AddedPart) {
-                        extras.Add(CreateThing(hediff.def.spawnThingOnRemoved, hediff.Part, __instance.InnerPawn.health.hediffSet));
-                        modifications.Add(hediff);
-                    }
-                }
-
-                // 'remove' any parts we'll return
-                foreach (Hediff modification in modifications) {
-                    __instance.InnerPawn.health.RemoveHediff(modification);
-                    __instance.InnerPawn.health.hediffSet.AddDirect(
-                                  HediffMaker.MakeHediff(
-                                      RimWorld.HediffDefOf.MissingBodyPart,
-                                      __instance.InnerPawn,
-                                      modification.Part));
+                foreach (Hediff hediff in diffSet.hediffs.Where(d => d is Hediff_Implant || d is Hediff_AddedPart)) {
+                    state.ReturnPart(hediff, diffSet);
                 }
             }
 
             // mechanoids: check for removable parts 
             if (race.IsMechanoid) {
-                // can't change body markup while enumerating - store chan ges
-                List<BodyPartRecord> partsToRemove = new List<BodyPartRecord>();
-
-                foreach (BodyPartRecord part in __instance.InnerPawn.health.hediffSet.GetNotMissingParts()) {
-                    ThingDef spawnOnRemove = part.def.spawnThingOnRemoved;
-
-                    if (spawnOnRemove != null) {
-                        extras.Add(CreateThing(spawnOnRemove, part, __instance.InnerPawn.health.hediffSet));
-                        partsToRemove.Add(part);
-                    }                                                          
+                foreach (var t in diffSet.GetNotMissingParts().Select(bpr => new {Part = bpr, Spawn = bpr.def.spawnThingOnRemoved}).Where(t => t.Spawn != null)) {
+                    state.ExtractPart(t.Spawn, diffSet, t.Part);
                 }
-
-
-                // remove parts
-                foreach (var partRecord in partsToRemove) {
-                    __instance.InnerPawn.health.hediffSet.AddDirect(
-                                  HediffMaker.MakeHediff(
-                                      RimWorld.HediffDefOf.MissingBodyPart,
-                                      __instance.InnerPawn,
-                                      partRecord));
-                }
-
             }
-            __state = extras;
-        }
 
-        private static Thing CreateThing(ThingDef def, BodyPartRecord part, HediffSet injuries) {
-            Thing thing = ThingMaker.MakeThing(def);
+            LogHealth("R³: Before prefix change", healthTracker);
 
-#if TRACE
-            Log.Message($"Create Thing: {def.defName}; Max HP: {def.BaseMaxHitPoints}; Part: {part.def.defName} ({injuries.GetPartHealth(part)}/{part.def.GetMaxHealth(injuries.pawn)} HP)");
-#endif
-            thing.HitPoints = (int)Math.Round(thing.MaxHitPoints * HitpointsFactor(part, injuries));
-            return thing;
-        }
+            // remove recorded parts (to get correct 'missing parts %' during actual butcher results calculation)
+            foreach (BodyPartRecord partRecord in state.HeChanges.PartsToRemove)
+                diffSet.AddDirect(
+                    HediffMaker.MakeHediff(
+                        RimWorld.HediffDefOf.MissingBodyPart,
+                        __instance.InnerPawn,
+                        partRecord));
 
-        private static float HitpointsFactor(BodyPartRecord part, HediffSet hediffSet) {
-            return hediffSet.GetPartHealth(part)/part.def.GetMaxHealth(hediffSet.pawn);
+
+            LogHealth("R³: After prefix change", healthTracker);
+
+            __state = state;
         }
 
 
         // ReSharper disable once UnusedMember.Global
         public static void Postfix(Corpse __instance, object __state, ref IEnumerable<Thing> __result, Pawn butcher, float efficiency) {
-            List<Thing> result = new List<Thing>(__result);
 
-            List<Thing> extras = __state as List<Thing>;
-            if (extras != null)
-                result.AddRange(extras);
+            ButcherState state = __state as ButcherState;
+            if (state != null) {
+                List<Thing> result = new List<Thing>(__result);
 
-            __result = result;
+                // generate extra results
+                foreach (ThingProperties extraResult in state.ExtraResults) 
+                    result.Add(Util.CreateThing(extraResult.Def, extraResult.HealthPercentage));
+
+                #region roll back hediff changes
+                Pawn_HealthTracker healthTracker = __instance.InnerPawn.health;
+                HediffSet diffSet = healthTracker.hediffSet;
+
+                var injectedPartRemovals = diffSet.hediffs.OfType<Hediff_MissingPart>()
+                                                  .Join(
+                                                      state.HeChanges.PartsToRemove.SelectMany(p => p.GetDescendants(true)),
+                                                      d => d.Part,
+                                                      p => p,
+                                                      (d, p) => d);
+
+                foreach (Hediff_MissingPart missingPart in injectedPartRemovals.ToArray()) {
+                    healthTracker.RemoveHediff(missingPart);
+                }
+
+                foreach (var hiddenDiff in state.HeChanges.HiddenHeDiffs.OrderBy(d => d, new HeDiffComparer_AddedPartsThenImplants())) {
+                    healthTracker.hediffSet.AddDirect(hiddenDiff);                    
+                }
+
+                LogHealth("R³: After postfix restore", healthTracker);
+                #endregion
+
+                __result = result;
+            }
         }
 
+
+        [Conditional("TRACE")]
+        private static void LogHealth(string message, Pawn_HealthTracker healthTracker) {
+            Util.LogMessage($"{message}:\r\n{Scribe.saver.DebugOutputFor(healthTracker)}");
+        }
     }
 }
