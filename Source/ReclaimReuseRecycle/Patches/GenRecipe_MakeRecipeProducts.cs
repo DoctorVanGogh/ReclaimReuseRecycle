@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Harmony;
 using Verse;
 
-namespace DoctorVanGogh.ReclaimReuseRecycle.Patches {
+namespace DoctorVanGogh.ReclaimReuseRecycle {
 
     [HarmonyPatch(typeof(GenRecipe), nameof(GenRecipe.MakeRecipeProducts))]
     public class GenRecipe_MakeRecipeProducts {
 
         private static Thing[] Empty = new Thing[0];
 
-        public static void Prefix(ref object __state, RecipeDef recipeDef, Pawn worker, List<Thing> ingredients, Thing dominantIngredient) {
+        public static void Prefix(ref object __state, RecipeDef recipeDef, ref Pawn worker, List<Thing> ingredients, Thing dominantIngredient) {
             if (recipeDef.specialProducts?.Any(p => p == SpecialProductType.Butchery) == true) {
-                __state = dominantIngredient as Corpse;
+                Corpse corpse = dominantIngredient as Corpse;
+                __state = corpse;
             }
         }
 
