@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReclaimReuseRecycle", "ReclaimReuseRecycle.csproj", "{1AC8C55D-C840-4ADF-BE16-2F5EF3F3A601}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14B236FD-4AAA-4F1E-A293-32C888F7B598}"
+	ProjectSection(SolutionItems) = preProject
+		RimworldInstall.props = RimworldInstall.props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,0 +1,6 @@
+  <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	  <PropertyGroup>
+		  <RimworldInstallPath>E:\Spiele\SteamApps\SteamApps\common\RimWorld\</RimworldInstallPath>
+      <RimworldDataPath>$(RimworldInstallPath)\RimWorldWin_Data\</RimworldDataPath>      
+	  </PropertyGroup>
+  </Project>
