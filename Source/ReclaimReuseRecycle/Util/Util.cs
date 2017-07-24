@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using RimWorld;
 using Verse;
 
 namespace DoctorVanGogh.ReclaimReuseRecycle {
     public static class Util {
+
+        static Util() {
+            _giveShortHash = Create_GiveShortHashInvocator();
+        }
 
         /// <summary>
         /// Get's a <see cref="BodyPartRecord"/>'s descendants
@@ -48,9 +55,50 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
             return hediffSet.GetPartHealth(part)/part.def.GetMaxHealth(hediffSet.pawn);
         }
 
+        public static void Error(string message) {
+            Verse.Log.Error($"[R³] {message}");
+        }
+        public static void Warning(string message) {
+            Verse.Log.Warning($"[R³] {message}");
+        }
 
-        public static void LogMessage(string message) {
-            Log.Message($"[R³] {message}");
+        public static void Log(string message) {
+            Verse.Log.Message($"[R³] {message}");
+        }
+
+        [Conditional("TRACE")]
+        public static void Trace(string message) {
+            Log(message);
+        }
+
+        private static readonly Action<Def, Type> _giveShortHash;
+
+        public static void GiveShortHash<TDef>(this TDef value) where TDef : Def {
+            _giveShortHash(value, typeof(TDef));
+        }
+
+        internal static Action<Def, Type> Create_GiveShortHashInvocator() {
+            Type[] parametersSignature = new[] {typeof(Def), typeof(Type)};
+
+            MethodInfo miGiveShortHashInternal = typeof(ShortHashGiver).GetMethod(
+                "GiveShortHash",
+                BindingFlags.NonPublic | BindingFlags.Static,
+                null,
+                parametersSignature,
+                null);
+
+            if (miGiveShortHashInternal == null) {
+                throw new InvalidOperationException("R³: Cannot retrieve ShortHashGiver.GiveShortHash method...");
+            }
+
+            DynamicMethod dm = new DynamicMethod("__GiveShortHash_Dynamic", null, parametersSignature, typeof(ShortHashGiver));
+            ILGenerator IL = dm.GetILGenerator();
+            IL.Emit(OpCodes.Ldarg_0);                               // 'Def' argument
+            IL.Emit(OpCodes.Ldarg_1);                               // 'Type' argument
+            IL.Emit(OpCodes.Call, miGiveShortHashInternal);         // call 'ShortHashGiver.GiveShortHash'
+            IL.Emit(OpCodes.Ret);                                   // return
+
+            return (Action<Def, Type>) dm.CreateDelegate(typeof(Action<Def, Type>));
         }
     }
 }

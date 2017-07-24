@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingCategoryDefs>
+  <ThingCategoryDef>
+    <defName>BodyPartsReclaimed</defName>
+    <label>Reclaimed Body Parts</label>
+    <parent>Items</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+    <defName>BodyPartsNonSterile</defName>
+    <label>Non-Sterile Body Part</label>
+    <parent>BodyPartsReclaimed</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+    <defName>BodyPartsNonSterile_Primitive</defName>
+    <label>Primitive Non-Sterile Body Part</label>
+    <parent>BodyPartsNonSterile</parent>
+  </ThingCategoryDef>
+  <ThingCategoryDef>
+    <defName>BodyPartsNonSterile_Advanced</defName>
+    <label>Advanced Non-Sterile Body Part</label>
+    <parent>BodyPartsNonSterile</parent>
+  </ThingCategoryDef>
+  <ThingCategoryDef>
+    <defName>BodyPartsNonSterile_Glittertech</defName>
+    <label>Glittertech Non-Sterile Body Part</label>
+    <parent>BodyPartsNonSterile</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+    <defName>BodyPartsMangled</defName>
+    <label>Mangled Body Parts</label>
+    <parent>BodyPartsReclaimed</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+    <defName>BodyPartsMangled_Primitive</defName>
+    <label>Primitive Mangled Body Part</label>
+    <parent>BodyPartsMangled</parent>
+  </ThingCategoryDef>
+  <ThingCategoryDef>
+    <defName>BodyPartsMangled_Advanced</defName>
+    <label>Advanced Mangled Body Part</label>
+    <parent>BodyPartsMangled</parent>
+  </ThingCategoryDef>
+  <ThingCategoryDef>
+    <defName>BodyPartsMangled_Glittertech</defName>
+    <label>Glittertech Mangled Body Part</label>
+    <parent>BodyPartsMangled</parent>
+  </ThingCategoryDef>
+
+</ThingCategoryDefs>

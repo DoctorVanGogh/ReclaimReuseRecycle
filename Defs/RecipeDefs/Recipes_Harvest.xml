@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RecipeDefs>
+
+	<RecipeDef Name="R3_HarvestCorpse" Abstract="true">
+		<label>harvest corpse</label>
+		<description>Harvest a corpse for reclaimable parts or implants.</description>
+		<jobString>Harvesting a corpse</jobString>
+		<workAmount>2000</workAmount>
+		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.RecipeWorker_Harvest</workerClass>		
+	</RecipeDef>
+
+
+	<RecipeDef ParentName="R3_HarvestCorpse">
+		<defName>R3_HarvestCorpseFlesh</defName>
+		<workSpeedStat>MedicalOperationSpeed</workSpeedStat>
+		<workSkill>Medicine</workSkill>
+		<effectWorking>Surgery</effectWorking>
+		<soundWorking>Recipe_Surgery</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Corpses</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Corpses</li>
+			</categories>
+			<exceptedCategories>
+				<li>CorpsesMechanoid</li>
+			</exceptedCategories>
+			<specialFiltersToDisallow>
+				<li>R3_AllowHarvestedAnimal</li>
+				<li>R3_AllowHarvestedSentient</li>
+				<li>AllowRotten</li>
+			</specialFiltersToDisallow>
+		</fixedIngredientFilter>
+		<RecipeUsers>
+			<li>TableButcher</li>
+		</RecipeUsers>
+	</RecipeDef>
+
+	<RecipeDef ParentName="R3_HarvestCorpse">
+		<defName>R3_HarvestCorpseMechanoid</defName>
+		<workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>ButcherMechanoid</effectWorking>
+		<soundWorking>Recipe_ButcherCorpseMechanoid</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Corpses</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>CorpsesMechanoid</li>
+			</categories>			
+			<specialFiltersToDisallow>
+				<li>R3_AllowHarvestedMechanoid</li>
+			</specialFiltersToDisallow>
+		</fixedIngredientFilter>
+		<RecipeUsers>
+			<li>TableMachining</li>
+		</RecipeUsers>
+	</RecipeDef>
+
+</RecipeDefs>

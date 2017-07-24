@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_Biological" Collapsed="true">
+    <Position X="5.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_Corpse" Collapsed="true">
+    <Position X="7.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAACAAAAAAAAAAAAQAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_HarvestedBiological" Collapsed="true">
+    <Position X="3" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_HarvestedBiologicalHumanlike" Collapsed="true">
+    <Position X="2" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_HarvestedMechanoid" Collapsed="true">
+    <Position X="11" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_Mechanoid" Collapsed="true">
+    <Position X="12" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_Racial" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAQgAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_UnHarvestedBiological" Collapsed="true">
+    <Position X="7.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_UnHarvestedBiologicalAnimal" Collapsed="true">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_UnHarvestedBiologicalHumanlike" Collapsed="true">
+    <Position X="8.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_UnHarvestedMechanoid" Collapsed="true">
+    <Position X="13.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DoctorVanGogh.ReclaimReuseRecycle.Filter_HarvestedBiologicalAnimal" Collapsed="true">
+    <Position X="4.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>[SpecialFilters]\Filters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

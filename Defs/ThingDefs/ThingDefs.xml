@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Resources>  
+
+  <ThingDef Name="ReclaimedPartBase" Abstract="true"> 
+    <thingClass>VanGogh.PackedThing</thingClass>
+    <category>Item</category>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+			<Beauty>-6</Beauty>
+		</statBases>       
+    <altitudeLayer>Item</altitudeLayer>
+    <tickerType>Never</tickerType>
+    <alwaysHaulable>true</alwaysHaulable>
+    <isBodyPartOrImplant>false</isBodyPartOrImplant>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+    <pathCost>10</pathCost>
+     <thingCategories>
+      <li>BodyPartsReclaimed</li>
+    </thingCategories>
+    <statBases>
+        <DeteriorationRate>5.0</DeteriorationRate>
+    </statBases>  
+    <statBases>
+      <MarketValue>10</MarketValue>
+      <Mass>1</Mass>
+    </statBases>      
+  </ThingDef>
+  
+</Resources>  
