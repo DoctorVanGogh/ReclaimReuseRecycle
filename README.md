@@ -1,5 +1,7 @@
 [![RimWorld Alpha 17](https://img.shields.io/badge/RimWorld-Alpha%2017-brightgreen.svg)](http://rimworldgame.com/)
 
+![Logo](https://raw.githubusercontent.com/DoctorVanGogh/ReclaimReuseRecycle/master/Textures/UI/Recycle.png)
+
 # Reclaim, Reuse, Recycle
 
 Rimworld mod that allows extracting added parts & implants from corpses.
@@ -15,6 +17,10 @@ This mods basically adds two types of jobs/recipes:
 
 Reclaimed parts (which can be any added part or implant that _could_ be removed from a corresponding live pawn) are either extracted in a _non-sterile_ or _mangled variant_. Undamaged (or slightly damaged) parts are extracted as _non-sterile_, while moderately damaged parts get extracted as _mangled_ versions. The thresholds for non-sterile/mangled/no extraction can be changed in the mod options. (Defaults are 100%-85%: non-sterile, 85%-50%: mangled, otherwise: non reclaimable).
 Non-sterile parts only need the part and medicine to be usable again, while mangled parts need additional material(s) for restoration.
+
+Non-Sterile | Mangled
+--- | ---
+![Non-Sterile](https://github.com/DoctorVanGogh/ReclaimReuseRecycle/blob/master/Textures/Things/Item/BodyPart/NonSterile.png) | ![Mangled](https://github.com/DoctorVanGogh/ReclaimReuseRecycle/blob/master/Textures/Things/Item/BodyPart/Mangled.png)
 
 ### Extracted part 'Complexity'
 
