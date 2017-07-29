@@ -41,9 +41,7 @@
 	AddDef<RecipeDef>("R3_Refurbish_Advanced");	
 	AddDef<RecipeDef>("R3_Refurbish_Glittertech");	
 	
-	AddDef<SpecialThingFilterDef>("R3_AllowUnHarvestedSentient");
-	AddDef<SpecialThingFilterDef>("R3_AllowUnHarvestedAnimal");
-	AddDef<SpecialThingFilterDef>("R3_AllowUnHarvestedMechanoid");
+	AddDef<SpecialThingFilterDef>("R3_AllowUnHarvested");
 
 	AddDef<StatDef>("MarketValue");
 	AddDef<StatDef>("Mass");

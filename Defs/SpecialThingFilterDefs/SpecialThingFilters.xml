@@ -1,63 +1,23 @@
 <SpecialThingFilters>
 
 	<SpecialThingFilterDef>
-		<defName>R3_AllowHarvestedAnimal</defName>
+		<defName>R3_AllowHarvested</defName>
 		<label>allow harvested corpse</label>
-        <description>Allow corpses of animals with no remaining added parts or implants.</description>
-		<parentCategory>CorpsesAnimal</parentCategory>
+        <description>Allow corpses with no remaining added parts or implants.</description>
+		<parentCategory>Corpses</parentCategory>
 		<allowedByDefault>true</allowedByDefault>
-		<saveKey>allowHarvestedAnimal</saveKey>
-		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_HarvestedBiologicalAnimal</workerClass>
-	</SpecialThingFilterDef>
+		<saveKey>allowHarvested</saveKey>
+		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_Harvested</workerClass>
+	</SpecialThingFilterDef> 
 
 	<SpecialThingFilterDef>
-		<defName>R3_AllowHarvestedSentient</defName>
-		<label>allow harvested corpse</label>
-        <description>Allow corpses of people with no remaining added parts or implants.</description>
-		<parentCategory>CorpsesHumanlike</parentCategory>
-		<allowedByDefault>true</allowedByDefault>
-		<saveKey>allowHarvestedSentient</saveKey>
-		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_HarvestedBiologicalHumanlike</workerClass>
-	</SpecialThingFilterDef>
-
-	<SpecialThingFilterDef>
-		<defName>R3_AllowHarvestedMechanoid</defName>
-		<label>allow harvested corpse</label>
-        <description>Allow corpses of mechanoids with no more removable parts.</description>
-		<parentCategory>CorpsesMechanoid</parentCategory>
-		<allowedByDefault>true</allowedByDefault>
-		<saveKey>allowHarvestedMechanoid</saveKey>
-		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_HarvestedMechanoid</workerClass>
-	</SpecialThingFilterDef>    
-
-	<SpecialThingFilterDef>
-		<defName>R3_AllowUnHarvestedAnimal</defName>
+		<defName>R3_AllowUnHarvested</defName>
 		<label>allow unharvested corpse</label>
-        <description>Allow corpses of animals with remaining added parts or implants that could be reclaimed.</description>
-		<parentCategory>CorpsesAnimal</parentCategory>
+        <description>Allow corpses with remaining added parts or implants that could be reclaimed.</description>
+		<parentCategory>Corpses</parentCategory>
 		<allowedByDefault>true</allowedByDefault>
-		<saveKey>allowUnHarvestedAnimal</saveKey>
-		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_UnHarvestedBiologicalAnimal</workerClass>
+		<saveKey>allowUnHarvested</saveKey>
+		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_UnHarvested</workerClass>
 	</SpecialThingFilterDef>
-
-	<SpecialThingFilterDef>
-		<defName>R3_AllowUnHarvestedSentient</defName>
-		<label>allow unharvested corpse</label>
-        <description>Allow corpses of people with remaining added parts or implants that could be reclaimed.</description>
-		<parentCategory>CorpsesHumanlike</parentCategory>
-		<allowedByDefault>true</allowedByDefault>
-		<saveKey>allowUnHarvestedSentient</saveKey>
-		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_UnHarvestedBiologicalHumanlike</workerClass>
-	</SpecialThingFilterDef>
-
-	<SpecialThingFilterDef>
-		<defName>R3_AllowUnHarvestedMechanoid</defName>
-		<label>allow unharvested corpse</label>
-        <description>Allow corpses of mechanoids with remaining parts that could be reclaimed.</description>
-		<parentCategory>CorpsesMechanoid</parentCategory>
-		<allowedByDefault>true</allowedByDefault>
-		<saveKey>allowUnHarvestedMechanoid</saveKey>
-		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_UnHarvestedMechanoid</workerClass>
-	</SpecialThingFilterDef>  
 
 </SpecialThingFilters>

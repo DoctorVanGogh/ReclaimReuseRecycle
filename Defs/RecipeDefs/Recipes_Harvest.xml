@@ -34,8 +34,7 @@
 				<li>CorpsesMechanoid</li>
 			</exceptedCategories>
 			<specialFiltersToDisallow>
-				<li>R3_AllowHarvestedAnimal</li>
-				<li>R3_AllowHarvestedSentient</li>
+				<li>R3_AllowHarvested</li>
 				<li>AllowRotten</li>
 			</specialFiltersToDisallow>
 		</fixedIngredientFilter>
@@ -65,7 +64,7 @@
 				<li>CorpsesMechanoid</li>
 			</categories>			
 			<specialFiltersToDisallow>
-				<li>R3_AllowHarvestedMechanoid</li>
+				<li>R3_AllowHarvested</li>
 			</specialFiltersToDisallow>
 		</fixedIngredientFilter>
 		<RecipeUsers>

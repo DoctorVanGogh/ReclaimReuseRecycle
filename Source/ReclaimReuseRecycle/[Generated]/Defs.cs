@@ -28,9 +28,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 		public const string @Recipe_R3_Sterilize_Advanced = @"R3_Sterilize_Advanced";
 		public const string @Recipe_R3_Sterilize_Glittertech = @"R3_Sterilize_Glittertech";
 		public const string @Recipe_R3_Sterilize_Primitive = @"R3_Sterilize_Primitive";
-		public const string @SpecialThingFilter_R3_AllowUnHarvestedAnimal = @"R3_AllowUnHarvestedAnimal";
-		public const string @SpecialThingFilter_R3_AllowUnHarvestedMechanoid = @"R3_AllowUnHarvestedMechanoid";
-		public const string @SpecialThingFilter_R3_AllowUnHarvestedSentient = @"R3_AllowUnHarvestedSentient";
+		public const string @SpecialThingFilter_R3_AllowUnHarvested = @"R3_AllowUnHarvested";
 		public const string @Stat_Beauty = @"Beauty";
 		public const string @Stat_DeteriorationRate = @"DeteriorationRate";
 		public const string @Stat_Flammability = @"Flammability";
@@ -78,9 +76,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 		private static RimWorld.StatDef _Stat_MarketValue = Verse.DefDatabase<RimWorld.StatDef>.GetNamed(DefNames.Stat_MarketValue);
 		private static RimWorld.StatDef _Stat_Mass = Verse.DefDatabase<RimWorld.StatDef>.GetNamed(DefNames.Stat_Mass);
 		private static RimWorld.StatDef _Stat_MaxHitPoints = Verse.DefDatabase<RimWorld.StatDef>.GetNamed(DefNames.Stat_MaxHitPoints);
-		private static Verse.SpecialThingFilterDef _SpecialThingFilter_R3_AllowUnHarvestedAnimal = Verse.DefDatabase<Verse.SpecialThingFilterDef>.GetNamed(DefNames.SpecialThingFilter_R3_AllowUnHarvestedAnimal);
-		private static Verse.SpecialThingFilterDef _SpecialThingFilter_R3_AllowUnHarvestedMechanoid = Verse.DefDatabase<Verse.SpecialThingFilterDef>.GetNamed(DefNames.SpecialThingFilter_R3_AllowUnHarvestedMechanoid);
-		private static Verse.SpecialThingFilterDef _SpecialThingFilter_R3_AllowUnHarvestedSentient = Verse.DefDatabase<Verse.SpecialThingFilterDef>.GetNamed(DefNames.SpecialThingFilter_R3_AllowUnHarvestedSentient);
+		private static Verse.SpecialThingFilterDef _SpecialThingFilter_R3_AllowUnHarvested = Verse.DefDatabase<Verse.SpecialThingFilterDef>.GetNamed(DefNames.SpecialThingFilter_R3_AllowUnHarvested);
 		private static Verse.RecipeDef _Recipe_R3_HarvestCorpseFlesh = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_HarvestCorpseFlesh);
 		private static Verse.RecipeDef _Recipe_R3_HarvestCorpseMechanoid = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_HarvestCorpseMechanoid);
 		private static Verse.RecipeDef _Recipe_R3_Refurbish_Advanced = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_Refurbish_Advanced);
@@ -110,9 +106,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 		public static RimWorld.StatDef @Stat_MarketValue { get { return _Stat_MarketValue; } }
 		public static RimWorld.StatDef @Stat_Mass { get { return _Stat_Mass; } }
 		public static RimWorld.StatDef @Stat_MaxHitPoints { get { return _Stat_MaxHitPoints; } }
-		public static Verse.SpecialThingFilterDef @SpecialThingFilter_R3_AllowUnHarvestedAnimal { get { return _SpecialThingFilter_R3_AllowUnHarvestedAnimal; } }
-		public static Verse.SpecialThingFilterDef @SpecialThingFilter_R3_AllowUnHarvestedMechanoid { get { return _SpecialThingFilter_R3_AllowUnHarvestedMechanoid; } }
-		public static Verse.SpecialThingFilterDef @SpecialThingFilter_R3_AllowUnHarvestedSentient { get { return _SpecialThingFilter_R3_AllowUnHarvestedSentient; } }
+		public static Verse.SpecialThingFilterDef @SpecialThingFilter_R3_AllowUnHarvested { get { return _SpecialThingFilter_R3_AllowUnHarvested; } }
 		public static Verse.RecipeDef @Recipe_R3_HarvestCorpseFlesh { get { return _Recipe_R3_HarvestCorpseFlesh; } }
 		public static Verse.RecipeDef @Recipe_R3_HarvestCorpseMechanoid { get { return _Recipe_R3_HarvestCorpseMechanoid; } }
 		public static Verse.RecipeDef @Recipe_R3_Refurbish_Advanced { get { return _Recipe_R3_Refurbish_Advanced; } }
