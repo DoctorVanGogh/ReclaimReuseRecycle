@@ -11,8 +11,10 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         [HarmonyPostfix]
         public static void Postfix() {
             // "patch" butcher creature recipe to disallow unharvested corpses by default
-            DefReferences.Recipe_ButcherCorpseFlesh.defaultIngredientFilter.SetAllow(DefReferences.SpecialThingFilter_R3_AllowUnHarvested, false);
-            DefReferences.Recipe_ButcherCorpseMechanoid.defaultIngredientFilter.SetAllow(DefReferences.SpecialThingFilter_R3_AllowUnHarvested, false);
+            foreach (var filter in new [] { DefReferences.SpecialThingFilter_R3_AllowUnharvested_Primitive, DefReferences.SpecialThingFilter_R3_AllowUnharvested_Advanced, DefReferences.SpecialThingFilter_R3_AllowUnharvested_Glittertech}) {
+                DefReferences.Recipe_ButcherCorpseFlesh.defaultIngredientFilter.SetAllow(filter, false);
+                DefReferences.Recipe_ButcherCorpseMechanoid.defaultIngredientFilter.SetAllow(filter, false);
+            }
 
             // "patch" market value stats to account for 'reclaimed' status
             DefReferences.Stat_MarketValue.parts.Add(new StatPart_Reclaimed());

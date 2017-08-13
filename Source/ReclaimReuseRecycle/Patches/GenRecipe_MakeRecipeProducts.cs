@@ -23,7 +23,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                                                         };
 
         public static void Postfix(ref IEnumerable<Thing> __result, RecipeDef recipeDef, Pawn worker, List<Thing> ingredients, Thing dominantIngredient) {
-            if (recipeDef == DefReferences.Recipe_R3_HarvestCorpseFlesh) {
+            if (RecipeWorker_Harvest.HarvestFleshRecipes.Contains(recipeDef)) {
                 List<Thing> result = new List<Thing>(__result ?? Empty);
 
                 var corpse = dominantIngredient as Corpse;
@@ -44,7 +44,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                 }
 
                 __result = result;
-            } else if (recipeDef == DefReferences.Recipe_R3_HarvestCorpseMechanoid) {
+            } else if (RecipeWorker_Harvest.HarvestMechanoidRecipes.Contains(recipeDef)) {
                 List<Thing> result = new List<Thing>(__result ?? Empty);
 
                 var corpse = dominantIngredient as Corpse;

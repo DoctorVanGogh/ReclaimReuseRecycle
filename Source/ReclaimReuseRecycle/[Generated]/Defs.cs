@@ -20,15 +20,21 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 	public partial class DefNames {
 		public const string @Recipe_ButcherCorpseFlesh = @"ButcherCorpseFlesh";
 		public const string @Recipe_ButcherCorpseMechanoid = @"ButcherCorpseMechanoid";
-		public const string @Recipe_R3_HarvestCorpseFlesh = @"R3_HarvestCorpseFlesh";
-		public const string @Recipe_R3_HarvestCorpseMechanoid = @"R3_HarvestCorpseMechanoid";
+		public const string @Recipe_R3_HarvestCorpseFlesh_Advanced = @"R3_HarvestCorpseFlesh_Advanced";
+		public const string @Recipe_R3_HarvestCorpseFlesh_Glittertech = @"R3_HarvestCorpseFlesh_Glittertech";
+		public const string @Recipe_R3_HarvestCorpseFlesh_Primitive = @"R3_HarvestCorpseFlesh_Primitive";
+		public const string @Recipe_R3_HarvestCorpseMechanoid_Advanced = @"R3_HarvestCorpseMechanoid_Advanced";
+		public const string @Recipe_R3_HarvestCorpseMechanoid_Glittertech = @"R3_HarvestCorpseMechanoid_Glittertech";
+		public const string @Recipe_R3_HarvestCorpseMechanoid_Primitive = @"R3_HarvestCorpseMechanoid_Primitive";
 		public const string @Recipe_R3_Refurbish_Advanced = @"R3_Refurbish_Advanced";
 		public const string @Recipe_R3_Refurbish_Glittertech = @"R3_Refurbish_Glittertech";
 		public const string @Recipe_R3_Refurbish_Primitive = @"R3_Refurbish_Primitive";
 		public const string @Recipe_R3_Sterilize_Advanced = @"R3_Sterilize_Advanced";
 		public const string @Recipe_R3_Sterilize_Glittertech = @"R3_Sterilize_Glittertech";
 		public const string @Recipe_R3_Sterilize_Primitive = @"R3_Sterilize_Primitive";
-		public const string @SpecialThingFilter_R3_AllowUnHarvested = @"R3_AllowUnHarvested";
+		public const string @SpecialThingFilter_R3_AllowUnharvested_Advanced = @"R3_AllowUnharvested_Advanced";
+		public const string @SpecialThingFilter_R3_AllowUnharvested_Glittertech = @"R3_AllowUnharvested_Glittertech";
+		public const string @SpecialThingFilter_R3_AllowUnharvested_Primitive = @"R3_AllowUnharvested_Primitive";
 		public const string @Stat_Beauty = @"Beauty";
 		public const string @Stat_DeteriorationRate = @"DeteriorationRate";
 		public const string @Stat_Flammability = @"Flammability";
@@ -76,9 +82,15 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 		private static RimWorld.StatDef _Stat_MarketValue = Verse.DefDatabase<RimWorld.StatDef>.GetNamed(DefNames.Stat_MarketValue);
 		private static RimWorld.StatDef _Stat_Mass = Verse.DefDatabase<RimWorld.StatDef>.GetNamed(DefNames.Stat_Mass);
 		private static RimWorld.StatDef _Stat_MaxHitPoints = Verse.DefDatabase<RimWorld.StatDef>.GetNamed(DefNames.Stat_MaxHitPoints);
-		private static Verse.SpecialThingFilterDef _SpecialThingFilter_R3_AllowUnHarvested = Verse.DefDatabase<Verse.SpecialThingFilterDef>.GetNamed(DefNames.SpecialThingFilter_R3_AllowUnHarvested);
-		private static Verse.RecipeDef _Recipe_R3_HarvestCorpseFlesh = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_HarvestCorpseFlesh);
-		private static Verse.RecipeDef _Recipe_R3_HarvestCorpseMechanoid = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_HarvestCorpseMechanoid);
+		private static Verse.SpecialThingFilterDef _SpecialThingFilter_R3_AllowUnharvested_Advanced = Verse.DefDatabase<Verse.SpecialThingFilterDef>.GetNamed(DefNames.SpecialThingFilter_R3_AllowUnharvested_Advanced);
+		private static Verse.SpecialThingFilterDef _SpecialThingFilter_R3_AllowUnharvested_Glittertech = Verse.DefDatabase<Verse.SpecialThingFilterDef>.GetNamed(DefNames.SpecialThingFilter_R3_AllowUnharvested_Glittertech);
+		private static Verse.SpecialThingFilterDef _SpecialThingFilter_R3_AllowUnharvested_Primitive = Verse.DefDatabase<Verse.SpecialThingFilterDef>.GetNamed(DefNames.SpecialThingFilter_R3_AllowUnharvested_Primitive);
+		private static Verse.RecipeDef _Recipe_R3_HarvestCorpseFlesh_Advanced = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_HarvestCorpseFlesh_Advanced);
+		private static Verse.RecipeDef _Recipe_R3_HarvestCorpseFlesh_Glittertech = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_HarvestCorpseFlesh_Glittertech);
+		private static Verse.RecipeDef _Recipe_R3_HarvestCorpseFlesh_Primitive = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_HarvestCorpseFlesh_Primitive);
+		private static Verse.RecipeDef _Recipe_R3_HarvestCorpseMechanoid_Advanced = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_HarvestCorpseMechanoid_Advanced);
+		private static Verse.RecipeDef _Recipe_R3_HarvestCorpseMechanoid_Glittertech = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_HarvestCorpseMechanoid_Glittertech);
+		private static Verse.RecipeDef _Recipe_R3_HarvestCorpseMechanoid_Primitive = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_HarvestCorpseMechanoid_Primitive);
 		private static Verse.RecipeDef _Recipe_R3_Refurbish_Advanced = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_Refurbish_Advanced);
 		private static Verse.RecipeDef _Recipe_R3_Refurbish_Glittertech = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_Refurbish_Glittertech);
 		private static Verse.RecipeDef _Recipe_R3_Refurbish_Primitive = Verse.DefDatabase<Verse.RecipeDef>.GetNamed(DefNames.Recipe_R3_Refurbish_Primitive);
@@ -106,9 +118,15 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 		public static RimWorld.StatDef @Stat_MarketValue { get { return _Stat_MarketValue; } }
 		public static RimWorld.StatDef @Stat_Mass { get { return _Stat_Mass; } }
 		public static RimWorld.StatDef @Stat_MaxHitPoints { get { return _Stat_MaxHitPoints; } }
-		public static Verse.SpecialThingFilterDef @SpecialThingFilter_R3_AllowUnHarvested { get { return _SpecialThingFilter_R3_AllowUnHarvested; } }
-		public static Verse.RecipeDef @Recipe_R3_HarvestCorpseFlesh { get { return _Recipe_R3_HarvestCorpseFlesh; } }
-		public static Verse.RecipeDef @Recipe_R3_HarvestCorpseMechanoid { get { return _Recipe_R3_HarvestCorpseMechanoid; } }
+		public static Verse.SpecialThingFilterDef @SpecialThingFilter_R3_AllowUnharvested_Advanced { get { return _SpecialThingFilter_R3_AllowUnharvested_Advanced; } }
+		public static Verse.SpecialThingFilterDef @SpecialThingFilter_R3_AllowUnharvested_Glittertech { get { return _SpecialThingFilter_R3_AllowUnharvested_Glittertech; } }
+		public static Verse.SpecialThingFilterDef @SpecialThingFilter_R3_AllowUnharvested_Primitive { get { return _SpecialThingFilter_R3_AllowUnharvested_Primitive; } }
+		public static Verse.RecipeDef @Recipe_R3_HarvestCorpseFlesh_Advanced { get { return _Recipe_R3_HarvestCorpseFlesh_Advanced; } }
+		public static Verse.RecipeDef @Recipe_R3_HarvestCorpseFlesh_Glittertech { get { return _Recipe_R3_HarvestCorpseFlesh_Glittertech; } }
+		public static Verse.RecipeDef @Recipe_R3_HarvestCorpseFlesh_Primitive { get { return _Recipe_R3_HarvestCorpseFlesh_Primitive; } }
+		public static Verse.RecipeDef @Recipe_R3_HarvestCorpseMechanoid_Advanced { get { return _Recipe_R3_HarvestCorpseMechanoid_Advanced; } }
+		public static Verse.RecipeDef @Recipe_R3_HarvestCorpseMechanoid_Glittertech { get { return _Recipe_R3_HarvestCorpseMechanoid_Glittertech; } }
+		public static Verse.RecipeDef @Recipe_R3_HarvestCorpseMechanoid_Primitive { get { return _Recipe_R3_HarvestCorpseMechanoid_Primitive; } }
 		public static Verse.RecipeDef @Recipe_R3_Refurbish_Advanced { get { return _Recipe_R3_Refurbish_Advanced; } }
 		public static Verse.RecipeDef @Recipe_R3_Refurbish_Glittertech { get { return _Recipe_R3_Refurbish_Glittertech; } }
 		public static Verse.RecipeDef @Recipe_R3_Refurbish_Primitive { get { return _Recipe_R3_Refurbish_Primitive; } }

@@ -114,7 +114,7 @@
     <PropertyGroup>
       <versionFile>$(ProjectDir)\Properties\version.txt</versionFile>
     </PropertyGroup>
-    <Version VersionFile="$(versionFile)" RevisionType="Increment" StartDate="2017/07/19" Major="0" Minor="5" Build="1" />
+    <Version VersionFile="$(versionFile)" RevisionType="Increment" StartDate="2017/07/19" Major="0" Minor="9" Build="0" />
     <ReadLinesFromFile File="$(versionFile)">
       <Output TaskParameter="Lines" ItemName="combinedVersion" />
     </ReadLinesFromFile>

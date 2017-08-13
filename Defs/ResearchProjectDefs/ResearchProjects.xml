@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ResearchTabDef>
+		<defName>R3_ResearchTab</defName>
+		<label>Reclaim, Reuse, Recycle</label>
+	</ResearchTabDef>
+
+    <!-- Harvesting -->
+
+	<ResearchProjectDef>
+		<defName>BasicHarvesting</defName>
+		<label>Basic Harvesting</label>
+		<description>Knowledge how to extract parts of basic complexity from corpses.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Neolithic</techLevel>
+        <tab>R3_ResearchTab</tab>
+		<researchViewX>0</researchViewX>
+		<researchViewY>0</researchViewY>
+		<tags>
+			<li>TribalStart</li>
+		</tags>        
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>AdvancedHarvesting</defName>
+		<label>Advanced Harvesting</label>
+		<description>Knowledge how to extract parts of advanced complexity from corpses.</description>
+		<baseCost>750</baseCost>
+		<techLevel>Medieval</techLevel>
+        <tab>R3_ResearchTab</tab>
+		<researchViewX>2</researchViewX>
+		<researchViewY>0</researchViewY>
+        <prerequisites>
+            <li>BasicHarvesting</li>
+        </prerequisites>
+		<tags>
+			<li>ClassicStart</li>
+		</tags>        
+	</ResearchProjectDef>
+
+ 	<ResearchProjectDef>
+		<defName>GlittertechHarvesting</defName>
+		<label>Glittertech Harvesting</label>
+		<description>Knowledge how to extract parts of Glittertech complexity from corpses.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Spacer</techLevel>
+        <tab>R3_ResearchTab</tab>
+		<researchViewX>4</researchViewX>
+		<researchViewY>0</researchViewY>		      
+        <prerequisites>
+            <li>AdvancedHarvesting</li>
+        </prerequisites>
+	</ResearchProjectDef> 
+
+
+    <!-- refurbishment -->
+
+	<ResearchProjectDef>
+		<defName>BasicRefurbishment</defName>
+		<label>Basic Refurbishment</label>
+		<description>Knowledge how to sterilze &amp; refurbish reclaimed parts of basic complexity.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Medieval</techLevel>
+        <tab>R3_ResearchTab</tab>
+		<researchViewX>1</researchViewX>
+		<researchViewY>1</researchViewY>
+        <prerequisites>
+            <li>BasicHarvesting</li>
+        </prerequisites>        
+		<tags>
+			<li>ClassicStart</li>
+		</tags>        
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>AdvancedRefurbishment</defName>
+		<label>Advanced Refurbishment</label>
+		<description>Knowledge how to sterilze &amp; refurbish reclaimed parts of advanced complexity.</description>
+		<baseCost>750</baseCost>
+		<techLevel>Industrial</techLevel>
+        <tab>R3_ResearchTab</tab>
+		<researchViewX>3</researchViewX>
+		<researchViewY>1</researchViewY>
+        <prerequisites>
+            <li>BasicRefurbishment</li>
+            <li>AdvancedHarvesting</li>            
+        </prerequisites>           
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>GlittertechRefurbishment</defName>
+		<label>Glittertech Refurbishment</label>
+		<description>Knowledge how to sterilze &amp; refurbish reclaimed parts of Glittertech complexity.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Ultra</techLevel>
+        <tab>R3_ResearchTab</tab>
+		<researchViewX>5</researchViewX>
+		<researchViewY>1</researchViewY>
+        <prerequisites>
+            <li>AdvancedRefurbishment</li>
+            <li>GlittertechHarvesting</li>            
+        </prerequisites>        		   
+	</ResearchProjectDef>
+
+</Defs>

@@ -1,13 +1,14 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DoctorVanGogh.ReclaimReuseRecycle;
 using Verse;
 
 namespace DoctorVanGogh.ReclaimReuseRecycle {
     public abstract class Filter_Corpse : SpecialThingFilterWorker {
-        private bool _requireReclaimableParts;
+        private Complexity? _complexity;
 
-        protected Filter_Corpse(bool requireReclaimableParts) {
-            _requireReclaimableParts = requireReclaimableParts;            
+        protected Filter_Corpse(Complexity? complexity) {
+            _complexity = complexity;            
         }
 
         public sealed override bool Matches(Thing t) {
@@ -30,33 +31,53 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
             Pawn_HealthTracker healthTracker = corpse.InnerPawn.health;
             HediffSet diffSet = healthTracker.hediffSet;
 
-            return ((race.Humanlike || race.Animal) && AnyReclaimablePartsOrganic(race, diffSet, healthTracker) == _requireReclaimableParts)
-                   || (race.IsMechanoid && AnyReclaimablePartsMechanoid(race, diffSet, healthTracker) == _requireReclaimableParts);
+
+            if (_complexity == null)
+                return (race.IsMechanoid && !GetReclaimablePartsMechanoid(race, diffSet, healthTracker).Any())
+                       || ((race.Humanlike || race.Animal) && !GetReclaimablePartsOrganic(race, diffSet, healthTracker).Any());
+
+            return (race.IsMechanoid && GetReclaimablePartsMechanoid(race, diffSet, healthTracker).Any(pd => pd.Complexity == _complexity))
+                   || ((race.Humanlike || race.Animal) && GetReclaimablePartsOrganic(race, diffSet, healthTracker).Any(pd => pd.Complexity == _complexity));
+
         }
 
-        private static bool AnyReclaimablePartsMechanoid(RaceProperties race, HediffSet diffSet, Pawn_HealthTracker healthTracker) {
-            return diffSet.GetNotMissingParts().Any(bpr => bpr.def.spawnThingOnRemoved != null
-                                                           && null != ThingDefGenerator_Reclaimed.GetExtractableDef(bpr.def.spawnThingOnRemoved, Util.HitpointsFactor(bpr, diffSet))
-                          );
+        private static IEnumerable<PackedThingDef> GetReclaimablePartsMechanoid(RaceProperties race, HediffSet diffSet, Pawn_HealthTracker healthTracker) {
+            return diffSet.GetNotMissingParts()
+                .Where(bpr => bpr.def.spawnThingOnRemoved != null)
+                .Select(bpr => ThingDefGenerator_Reclaimed.GetExtractableDef(bpr.def.spawnThingOnRemoved, Util.HitpointsFactor(bpr, diffSet)));
         }
 
-        private static bool AnyReclaimablePartsOrganic(RaceProperties race, HediffSet diffSet, Pawn_HealthTracker healthTracker) {
-            return diffSet.hediffs.Any(
-                              d => (d is Hediff_Implant || d is Hediff_AddedPart)
-                                   && null != ThingDefGenerator_Reclaimed.GetExtractableDef(d.def.spawnThingOnRemoved, Util.HitpointsFactor(d.Part, diffSet)));
-        }
 
+        private static IEnumerable<PackedThingDef> GetReclaimablePartsOrganic(RaceProperties race, HediffSet diffSet, Pawn_HealthTracker healthTracker) {
+            return diffSet.hediffs
+                          .Where(d => (d is Hediff_Implant || d is Hediff_AddedPart) && d.def.spawnThingOnRemoved != null)
+                          .Select(d => ThingDefGenerator_Reclaimed.GetExtractableDef(d.def.spawnThingOnRemoved, Util.HitpointsFactor(d.Part, diffSet)));
+        }
+        
     }
 
 
     public class Filter_Harvested : Filter_Corpse {
-        public Filter_Harvested()  : base(false){            
+        public Filter_Harvested()  : base(null){            
         }
     }
 
-    public class Filter_UnHarvested : Filter_Corpse {
-        public Filter_UnHarvested() : base(true) {
+    public class Filter_Unharvested_Primitive : Filter_Corpse {
+        public Filter_Unharvested_Primitive() : base(Complexity.Primitive) {
             
         }
-    }    
+    }
+
+    public class Filter_Unharvested_Advanced : Filter_Corpse {
+        public Filter_Unharvested_Advanced() : base(Complexity.Advanced) {
+
+        }
+    }
+
+    public class Filter_Unharvested_Glittertech : Filter_Corpse {
+        public Filter_Unharvested_Glittertech() : base(Complexity.Glittertech) {
+
+        }
+    }
+
 }

@@ -2,7 +2,7 @@
 
 	<SpecialThingFilterDef>
 		<defName>R3_AllowHarvested</defName>
-		<label>allow harvested corpse</label>
+		<label>harvested</label>
         <description>Allow corpses with no remaining added parts or implants.</description>
 		<parentCategory>Corpses</parentCategory>
 		<allowedByDefault>true</allowedByDefault>
@@ -11,13 +11,33 @@
 	</SpecialThingFilterDef> 
 
 	<SpecialThingFilterDef>
-		<defName>R3_AllowUnHarvested</defName>
-		<label>allow unharvested corpse</label>
-        <description>Allow corpses with remaining added parts or implants that could be reclaimed.</description>
+		<defName>R3_AllowUnharvested_Primitive</defName>
+		<label>unharvested (primitive)</label>
+        <description>Allow corpses with remaining added parts or implants of primitive complexity that could be reclaimed.</description>
 		<parentCategory>Corpses</parentCategory>
 		<allowedByDefault>true</allowedByDefault>
-		<saveKey>allowUnHarvested</saveKey>
-		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_UnHarvested</workerClass>
+		<saveKey>allowUnharvestedPrimitive</saveKey>
+		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_Unharvested_Primitive</workerClass>
 	</SpecialThingFilterDef>
+
+	<SpecialThingFilterDef>
+		<defName>R3_AllowUnharvested_Advanced</defName>
+		<label>unharvested (dvanced)</label>
+        <description>Allow corpses with remaining added parts or implants of advanced complexity that could be reclaimed.</description>
+		<parentCategory>Corpses</parentCategory>
+		<allowedByDefault>true</allowedByDefault>
+		<saveKey>allowUnharvestedAdvanced</saveKey>
+		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_Unharvested_Advanced</workerClass>
+	</SpecialThingFilterDef>
+
+	<SpecialThingFilterDef>
+		<defName>R3_AllowUnharvested_Glittertech</defName>
+		<label>unharvested (glittertech)</label>
+        <description>Allow corpses with remaining added parts or implants of Glittertech complexity that could be reclaimed.</description>
+		<parentCategory>Corpses</parentCategory>
+		<allowedByDefault>true</allowedByDefault>
+		<saveKey>allowUnharvestedGlittertech</saveKey>
+		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_Unharvested_Glittertech</workerClass>
+	</SpecialThingFilterDef>	
 
 </SpecialThingFilters>

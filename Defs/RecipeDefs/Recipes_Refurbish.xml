@@ -5,7 +5,7 @@
 		<workSpeedStat>SmithingSpeed</workSpeedStat>
 		<workSkill>Crafting</workSkill>
 		<effectWorking>Surgery</effectWorking>
-		<soundWorking>Recipe_Surgery</soundWorking>
+		<soundWorking>Recipe_Surgery</soundWorking>		
 		<RecipeUsers>
 			<li>DrugLab</li>
 		</RecipeUsers>		
@@ -58,6 +58,7 @@
 				<minLevel>2</minLevel>
 			</li>
 		</skillRequirements>
+		<researchPrerequisite>BasicRefurbishment</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="R3_SterilizePart">
@@ -96,6 +97,7 @@
 				<minLevel>4</minLevel>
 			</li>
 		</skillRequirements>
+		<researchPrerequisite>AdvancedRefurbishment</researchPrerequisite>		
 	</RecipeDef>
 	<RecipeDef ParentName="R3_SterilizePart">
 		<defName>R3_Sterilize_Glittertech</defName>
@@ -133,6 +135,7 @@
 				<minLevel>6</minLevel>
 			</li>
 		</skillRequirements>
+		<researchPrerequisite>GlittertechRefurbishment</researchPrerequisite>		
 	</RecipeDef>	
 
 	<RecipeDef ParentName="R3_RefurbishPart">
@@ -189,6 +192,7 @@
 				<minLevel>6</minLevel>
 			</li>
 		</skillRequirements>
+		<researchPrerequisite>BasicRefurbishment</researchPrerequisite>		
 	</RecipeDef>
 	<RecipeDef ParentName="R3_RefurbishPart">
 		<defName>R3_Refurbish_Advanced</defName>
@@ -244,6 +248,7 @@
 				<minLevel>8</minLevel>
 			</li>
 		</skillRequirements>
+		<researchPrerequisite>AdvancedRefurbishment</researchPrerequisite>		
 	</RecipeDef>
 	<RecipeDef ParentName="R3_RefurbishPart">
 		<defName>R3_Refurbish_Glittertech</defName>
@@ -299,5 +304,6 @@
 				<minLevel>10</minLevel>
 			</li>
 		</skillRequirements>
+		<researchPrerequisite>GlittertechRefurbishment</researchPrerequisite>		
 	</RecipeDef>	
 </RecipeDefs>

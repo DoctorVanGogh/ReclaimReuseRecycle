@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <RecipeDefs>
 
+	<!-- prototypes -->
+
 	<RecipeDef Name="R3_HarvestCorpse" Abstract="true">
 		<label>harvest corpse</label>
 		<description>Harvest a corpse for reclaimable parts or implants.</description>
 		<jobString>Harvesting a corpse</jobString>
 		<workAmount>2000</workAmount>
-		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.RecipeWorker_Harvest</workerClass>		
+		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.RecipeWorker_Harvest</workerClass>
 	</RecipeDef>
 
-
-	<RecipeDef ParentName="R3_HarvestCorpse">
-		<defName>R3_HarvestCorpseFlesh</defName>
+	<RecipeDef Name="R3_HarvestCorpseFlesh" ParentName="R3_HarvestCorpse" Abstract="true">		
 		<workSpeedStat>MedicalOperationSpeed</workSpeedStat>
 		<workSkill>Medicine</workSkill>
 		<effectWorking>Surgery</effectWorking>
 		<soundWorking>Recipe_Surgery</soundWorking>
+		<requiredGiverWorkType>Doctor</requiredGiverWorkType>
 		<ingredients>
 			<li>
 				<filter>
@@ -25,7 +26,43 @@
 				</filter>
 				<count>1</count>
 			</li>
-		</ingredients>
+		</ingredients>			
+		<RecipeUsers>
+			<li>TableButcher</li>
+		</RecipeUsers>		
+	</RecipeDef>
+
+
+	<RecipeDef Name="R3_HarvestCorpseMechanoid" ParentName="R3_HarvestCorpse" Abstract="true">
+		<workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>ButcherMechanoid</effectWorking>
+		<soundWorking>Recipe_ButcherCorpseMechanoid</soundWorking>
+		<requiredGiverWorkType>Crafting</requiredGiverWorkType>					
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Corpses</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>		
+		<RecipeUsers>
+			<li>TableMachining</li>
+		</RecipeUsers>
+	</RecipeDef>
+
+
+	<!-- flesh harvesting recipes -->
+
+	<RecipeDef ParentName="R3_HarvestCorpseFlesh">
+		<defName>R3_HarvestCorpseFlesh_Primitive</defName>		
+		<label>harvest corpse (primitive)</label>
+		<description>Harvest a corpse for reclaimable parts &amp; implants of primitive complexity.</description>		
+		<workAmount>1000</workAmount>
+		<researchPrerequisite>BasicHarvesting</researchPrerequisite>
 		<fixedIngredientFilter>
 			<categories>
 				<li>Corpses</li>
@@ -35,30 +72,97 @@
 			</exceptedCategories>
 			<specialFiltersToDisallow>
 				<li>R3_AllowHarvested</li>
+				<li>R3_AllowUnharvested_Advanced</li>
+				<li>R3_AllowUnharvested_Glittertech</li>				
 				<li>AllowRotten</li>
 			</specialFiltersToDisallow>
-		</fixedIngredientFilter>
-		<RecipeUsers>
-			<li>TableButcher</li>
-		</RecipeUsers>
+		</fixedIngredientFilter>								
 	</RecipeDef>
 
-	<RecipeDef ParentName="R3_HarvestCorpse">
-		<defName>R3_HarvestCorpseMechanoid</defName>
-		<workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
-		<workSkill>Crafting</workSkill>
-		<effectWorking>ButcherMechanoid</effectWorking>
-		<soundWorking>Recipe_ButcherCorpseMechanoid</soundWorking>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Corpses</li>
-					</categories>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
+	<RecipeDef ParentName="R3_HarvestCorpseFlesh">
+		<defName>R3_HarvestCorpseFlesh_Advanced</defName>		
+		<label>harvest corpse (advanced)</label>
+		<description>Harvest a corpse for reclaimable parts &amp; implants of advanced complexity or lower.</description>		
+		<workAmount>1500</workAmount>		
+		<researchPrerequisite>AdvancedHarvesting</researchPrerequisite>	
+		<fixedIngredientFilter>
+			<categories>
+				<li>Corpses</li>
+			</categories>
+			<exceptedCategories>
+				<li>CorpsesMechanoid</li>
+			</exceptedCategories>
+			<specialFiltersToDisallow>
+				<li>R3_AllowHarvested</li>
+				<li>R3_AllowUnharvested_Glittertech</li>				
+				<li>AllowRotten</li>
+			</specialFiltersToDisallow>
+		</fixedIngredientFilter>							
+	</RecipeDef>
+
+	<RecipeDef ParentName="R3_HarvestCorpseFlesh">
+		<defName>R3_HarvestCorpseFlesh_Glittertech</defName>		
+		<label>harvest corpse (Glittertech)</label>
+		<description>Harvest a corpse for reclaimable parts &amp; implants of Glittertech complexity or lower.</description>		
+		<workAmount>2000</workAmount>		
+		<researchPrerequisite>GlittertechHarvesting</researchPrerequisite>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Corpses</li>
+			</categories>
+			<exceptedCategories>
+				<li>CorpsesMechanoid</li>
+			</exceptedCategories>
+			<specialFiltersToDisallow>
+				<li>R3_AllowHarvested</li>				
+				<li>AllowRotten</li>
+			</specialFiltersToDisallow>
+		</fixedIngredientFilter>								
+	</RecipeDef>
+
+	<!-- mechanoid harvesting recipes -->
+
+	<RecipeDef ParentName="R3_HarvestCorpseMechanoid">
+		<defName>R3_HarvestCorpseMechanoid_Primitive</defName>		
+		<label>harvest corpse (primitive)</label>
+		<description>Harvest a corpse for reclaimable parts of primitive complexity.</description>		
+		<workAmount>1000</workAmount>		
+		<researchPrerequisite>BasicHarvesting</researchPrerequisite>
+		<fixedIngredientFilter>
+			<categories>
+				<li>CorpsesMechanoid</li>
+			</categories>			
+			<specialFiltersToDisallow>
+				<li>R3_AllowHarvested</li>
+				<li>R3_AllowUnharvested_Advanced</li>								
+				<li>R3_AllowUnharvested_Glittertech</li>
+			</specialFiltersToDisallow>
+		</fixedIngredientFilter>								
+	</RecipeDef>
+
+	<RecipeDef ParentName="R3_HarvestCorpseMechanoid">
+		<defName>R3_HarvestCorpseMechanoid_Advanced</defName>		
+		<label>harvest corpse (advanced)</label>
+		<description>Harvest a corpse for reclaimable parts of advanced complexity or lower.</description>			
+		<workAmount>1500</workAmount>		
+		<researchPrerequisite>AdvancedHarvesting</researchPrerequisite>	
+		<fixedIngredientFilter>
+			<categories>
+				<li>CorpsesMechanoid</li>
+			</categories>			
+			<specialFiltersToDisallow>
+				<li>R3_AllowHarvested</li>								
+				<li>R3_AllowUnharvested_Glittertech</li>
+			</specialFiltersToDisallow>
+		</fixedIngredientFilter>								
+	</RecipeDef>
+
+	<RecipeDef ParentName="R3_HarvestCorpseMechanoid">
+		<defName>R3_HarvestCorpseMechanoid_Glittertech</defName>		
+		<label>harvest corpse (Glittertech)</label>
+		<description>Harvest a corpse for reclaimable parts of glittertech complexity or lower.</description>				
+		<workAmount>2000</workAmount>		
+		<researchPrerequisite>GlittertechHarvesting</researchPrerequisite>
 		<fixedIngredientFilter>
 			<categories>
 				<li>CorpsesMechanoid</li>
@@ -66,10 +170,7 @@
 			<specialFiltersToDisallow>
 				<li>R3_AllowHarvested</li>
 			</specialFiltersToDisallow>
-		</fixedIngredientFilter>
-		<RecipeUsers>
-			<li>TableMachining</li>
-		</RecipeUsers>
-	</RecipeDef>
+		</fixedIngredientFilter>									
+	</RecipeDef>	
 
 </RecipeDefs>

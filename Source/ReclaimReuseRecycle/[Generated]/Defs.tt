@@ -30,8 +30,12 @@
 	AddDef<RecipeDef>("ButcherCorpseFlesh");
 	AddDef<RecipeDef>("ButcherCorpseMechanoid");
 
-	AddDef<RecipeDef>("R3_HarvestCorpseFlesh");
-	AddDef<RecipeDef>("R3_HarvestCorpseMechanoid");	
+	AddDef<RecipeDef>("R3_HarvestCorpseFlesh_Primitive");	
+	AddDef<RecipeDef>("R3_HarvestCorpseFlesh_Advanced");	
+	AddDef<RecipeDef>("R3_HarvestCorpseFlesh_Glittertech");	
+	AddDef<RecipeDef>("R3_HarvestCorpseMechanoid_Primitive");	
+	AddDef<RecipeDef>("R3_HarvestCorpseMechanoid_Advanced");	
+	AddDef<RecipeDef>("R3_HarvestCorpseMechanoid_Glittertech");	
 
 	AddDef<RecipeDef>("R3_Sterilize_Primitive");	
 	AddDef<RecipeDef>("R3_Sterilize_Advanced");	
@@ -41,7 +45,9 @@
 	AddDef<RecipeDef>("R3_Refurbish_Advanced");	
 	AddDef<RecipeDef>("R3_Refurbish_Glittertech");	
 	
-	AddDef<SpecialThingFilterDef>("R3_AllowUnHarvested");
+	AddDef<SpecialThingFilterDef>("R3_AllowUnharvested_Primitive");
+	AddDef<SpecialThingFilterDef>("R3_AllowUnharvested_Advanced");
+	AddDef<SpecialThingFilterDef>("R3_AllowUnharvested_Glittertech");
 
 	AddDef<StatDef>("MarketValue");
 	AddDef<StatDef>("Mass");
