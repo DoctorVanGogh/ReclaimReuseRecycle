@@ -22,7 +22,7 @@
 
 	<SpecialThingFilterDef>
 		<defName>R3_AllowUnharvested_Advanced</defName>
-		<label>unharvested (dvanced)</label>
+		<label>unharvested (advanced)</label>
         <description>Allow corpses with remaining added parts or implants of advanced complexity that could be reclaimed.</description>
 		<parentCategory>Corpses</parentCategory>
 		<allowedByDefault>true</allowedByDefault>

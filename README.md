@@ -1,4 +1,4 @@
-[![RimWorld Alpha 17](https://img.shields.io/badge/RimWorld-Alpha%2017-brightgreen.svg)](http://rimworldgame.com/)
+[![RimWorld Alpha 17](https://img.shields.io/badge/RimWorld-Alpha%2017-brightgreen.svg)](http://rimworldgame.com/) [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ![Logo](https://raw.githubusercontent.com/DoctorVanGogh/ReclaimReuseRecycle/master/Textures/UI/Recycle.png)
 
@@ -8,8 +8,9 @@ Rimworld mod that allows extracting added parts & implants from corpses.
 
 This mods basically adds two types of jobs/recipes:
 
-- A "Harvest corpse" job at the Butcher & Machining Tables which will try to extract all recoverable artificial body parts.
+- A set of "Harvest corpse" jobs at the Butcher & Machining Tables which will try to extract all recoverable artificial body parts.
 - A set of "refurbish" type jobs on the Drug Lab which will transform extracted parts into fully reusable body parts again.
+- A set of research projects (un)locking the harvesting & refurbishment type jobs.
 
 ## Basic concepts
 
@@ -57,6 +58,10 @@ Please report any errors or issues on the [github issue tracker](https://github.
 
 ---
 
-## Powered by Harmony
+## Powered by ![Harmony](https://github.com/pardeike/Harmony)
 
-![Powered by Harmony](https://camo.githubusercontent.com/074bf079275fa90809f51b74e9dd0deccc70328f/68747470733a2f2f7332342e706f7374696d672e6f72672f3538626c31727a33392f6c6f676f2e706e67)
+<p align="center">
+<img alt="Powered by Harmony" src="https://camo.githubusercontent.com/074bf079275fa90809f51b74e9dd0deccc70328f/68747470733a2f2f7332342e706f7374696d672e6f72672f3538626c31727a33392f6c6f676f2e706e67" />
+</p>
+
+Harmony is lisenced under a [MIT license](https://raw.githubusercontent.com/pardeike/Harmony/master/LICENSE).
