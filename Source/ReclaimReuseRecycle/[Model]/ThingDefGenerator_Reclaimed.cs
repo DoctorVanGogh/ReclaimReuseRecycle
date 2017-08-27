@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace DoctorVanGogh.ReclaimReuseRecycle {
@@ -13,6 +14,13 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         public static readonly string NonSterileDefNameFormat = @"NonSterile_{0}";
 
         public static readonly string MangledDefNameFormat = @"Mangled_{0}";
+
+        public static readonly Color MangledColor = new Color(0.67f, 1f, 0.67f, 1f);
+        public static readonly Color NonSterileColor = new Color(1f, 1f, 0.67f, 1f);
+
+        public static readonly string MangledColorHex = MangledColor.ToHexColor();
+        public static readonly string NonSterileColorHex = NonSterileColor.ToHexColor();
+
 
         private static readonly Type[] validHediffs = new[] { typeof(Hediff_AddedPart), typeof(Hediff_Implant) };
 
@@ -57,9 +65,8 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
             return GenerateImpliedPackedDef(
                 t,
                 NonSterileDefNameFormat,
-                LanguageKeys.r3.R3_NonSterile_Label,
                 LanguageKeys.r3.R3_NonSterile_Description,
-                "Things/Item/BodyPart/NonSterile",
+                NonSterileColor,
                 ReclamationType.NonSterile,
                 researchTechLevel);
         }
@@ -68,22 +75,22 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
             return GenerateImpliedPackedDef(
                 t,
                 MangledDefNameFormat,
-                LanguageKeys.r3.R3_Mangled_Label,
                 LanguageKeys.r3.R3_Mangled_Description,
-                "Things/Item/BodyPart/Mangled",
+                MangledColor,
                 ReclamationType.Mangled,
                 researchTechLevel);
         }
 
-        private static PackedThingDef GenerateImpliedPackedDef(ThingDef t, string defFormat, string labelKey, string descriptionKey, string texPath,
+        private static PackedThingDef GenerateImpliedPackedDef(ThingDef t, string defFormat, string descriptionKey, Color color,
                                                                ReclamationType type, TechLevel? researchTechlevel = null) {
             PackedThingDef d = new PackedThingDef {
                                    thingClass = typeof(PackedThing),
                                    defName = String.Format(CultureInfo.InvariantCulture, defFormat, t.defName),
-                                   label = labelKey.Translate(t.LabelCap),
+                                   label =  LanguageKeys.r3.R3_Label.Translate(t.LabelCap, color.ToHexColor(), type.Translate()),
                                    description = descriptionKey.Translate(t.LabelCap),
                                    graphicData = new GraphicData {
-                                                     texPath = texPath,
+                                                     texPath = "Things/Item/BodyPart/ArtificialOrgan",
+                                                     color = color,                                                     
                                                      graphicClass = typeof(Graphic_Single)
                                                  },
                                    category = ThingCategory.Item,

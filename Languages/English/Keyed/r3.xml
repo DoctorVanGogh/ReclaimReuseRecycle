@@ -16,10 +16,9 @@ When you refuse to reuse it’s your Rimworld you abuse.]]></R3.Tagline>
 
 	<R3.OriginalThing>Original item</R3.OriginalThing>	
     
-    <R3.NonSterile.Label><![CDATA[<color=#aaffaaff>Non-sterile {0}</color>]]></R3.NonSterile.Label>
-    <R3.NonSterile.Description>This is a {0} that was reclaimed from a corpse. It needs to be sterilized before it can be used again.</R3.NonSterile.Description>
+    <R3.Label><![CDATA[<color={1}>{2} {0}</color>]]></R3.Label>
 
-    <R3.Mangled.Label><![CDATA[<color=#ffffaaff>Mangled {0}</color>]]></R3.Mangled.Label>
+    <R3.NonSterile.Description>This is a {0} that was reclaimed from a corpse. It needs to be sterilized before it can be used again.</R3.NonSterile.Description>
     <R3.Mangled.Description>This is a {0} that was reclaimed from a corpse. It is heavily damaged and need extensive refurbishment and sterilization before it can be used again.</R3.Mangled.Description>
        
     <R3.StatsReport_ReclamationMultiplier>Multiplier for reclamation status</R3.StatsReport_ReclamationMultiplier>
@@ -27,8 +26,9 @@ When you refuse to reuse it’s your Rimworld you abuse.]]></R3.Tagline>
     <R3.RangeExplanation><![CDATA[The following settings control the health range(s) a corpse's part needs to have to be recoverable as the respective item type.
 <size=12><i><color=#808080ff>(The recovered parts will have 100% of their hitpoints when harvested at the top end of the range and 50% hitpoints at the bottom.)</color></i></size>]]></R3.RangeExplanation>
 
-    <R3.Mangled.Settings><![CDATA[Recoverable as a <b><color=#ffffaaff>Mangled</color></b> item]]></R3.Mangled.Settings>
-    <R3.NonSterile.Settings><![CDATA[Recoverable as a <b><color=#aaffaaff>Non-Sterile</color></b> item]]></R3.NonSterile.Settings>     
+    <R3.Settings.Recoverable><![CDATA[Recoverable as a <b><color={0}>{1}</color></b> item]]></R3.Settings.Recoverable>
 
+    <R3.Reclamation.Mangled>Mangled</R3.Reclamation.Mangled>
+    <R3.Reclamation.NonSterile>Non-sterile</R3.Reclamation.NonSterile>
 
 </LanguageData>

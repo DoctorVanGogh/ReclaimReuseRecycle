@@ -21,7 +21,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 			/// </summary>
 			public const string @R3_SettingsCategory = "R3.SettingsCategory";
 			/// <summary>
-			/// Get's the translation key for '<em>&quot;Don’t throw away, recycle for another day.&quot;</em>'
+			/// Get's the translation key for '<em>Don’t throw away, recycle for another day.<br />Don’t throw it away, it can be used in some other way.<br />Don’t throw your future away!<br />Just think before you bin it, there could be some use in it!<br />Money grows on trees: Recycle peg legs.<br />Never refuse to reuse.<br />Once is not enough, recycle.<br />Recycle the present, save the future.<br />Recyclers do it over and over again.<br />Waste it once…pay for it twice!<br />When in doubt, don’t throw it out!<br />When you refuse to reuse it’s your Rimworld you abuse.</em>'
 			/// </summary>
 			public const string @R3_Tagline = "R3.Tagline";
 			/// <summary>
@@ -29,17 +29,13 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 			/// </summary>
 			public const string @R3_OriginalThing = "R3.OriginalThing";
 			/// <summary>
-			/// Get's the translation key for '<em>&lt;color=#aaffaaff&gt;non-sterile {0}&lt;/color&gt;</em>'
+			/// Get's the translation key for '<em>&lt;color={1}&gt;{2} {0}&lt;/color&gt;</em>'
 			/// </summary>
-			public const string @R3_NonSterile_Label = "R3.NonSterile.Label";
+			public const string @R3_Label = "R3.Label";
 			/// <summary>
 			/// Get's the translation key for '<em>This is a {0} that was reclaimed from a corpse. It needs to be sterilized before it can be used again.</em>'
 			/// </summary>
 			public const string @R3_NonSterile_Description = "R3.NonSterile.Description";
-			/// <summary>
-			/// Get's the translation key for '<em>&lt;color=#ffffaaff&gt;mangled {0}&lt;/color&gt;</em>'
-			/// </summary>
-			public const string @R3_Mangled_Label = "R3.Mangled.Label";
 			/// <summary>
 			/// Get's the translation key for '<em>This is a {0} that was reclaimed from a corpse. It is heavily damaged and need extensive refurbishment and sterilization before it can be used again.</em>'
 			/// </summary>
@@ -53,17 +49,17 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 			/// </summary>
 			public const string @R3_RangeExplanation = "R3.RangeExplanation";
 			/// <summary>
-			/// Get's the translation key for '<em>Health %: {0}</em>'
+			/// Get's the translation key for '<em>Recoverable as a &lt;b&gt;&lt;color={1}&gt;{2}&lt;/color&gt;&lt;/b&gt; item</em>'
 			/// </summary>
-			public const string @R3_HealthRange = "R3.HealthRange";
+			public const string @R3_Settings_Recoverable = "R3.Settings.Recoverable";
 			/// <summary>
-			/// Get's the translation key for '<em>Recoverable as a &lt;b&gt;&lt;color=#ffffaaff&gt;Mangled&lt;/color&gt;&lt;/b&gt; item</em>'
+			/// Get's the translation key for '<em>Mangled</em>'
 			/// </summary>
-			public const string @R3_Mangled_Settings = "R3.Mangled.Settings";
+			public const string @R3_Reclamation_Mangled = "R3.Reclamation.Mangled";
 			/// <summary>
-			/// Get's the translation key for '<em>Recoverable as a &lt;b&gt;&lt;color=#aaffaaff&gt;Non-Sterile&lt;/color&gt;&lt;/b&gt; item</em>'
+			/// Get's the translation key for '<em>Non-sterile</em>'
 			/// </summary>
-			public const string @R3_NonSterile_Settings = "R3.NonSterile.Settings";
+			public const string @R3_Reclamation_NonSterile = "R3.Reclamation.NonSterile";
 		}
 	}
 }
