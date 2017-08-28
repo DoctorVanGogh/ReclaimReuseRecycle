@@ -67,11 +67,6 @@
     <Compile Include="[Model]\ThingDefGenerator_Reclaimed.cs" />
     <Compile Include="Util\HarvestUtility.cs" />
     <Compile Include="[Model]\RecipeWorker.cs" />
-    <None Include="[Generated]\Defs.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Defs.tt</DependentUpon>
-    </None>
     <Compile Include="[Model]\PackedThing.cs" />
     <Compile Include="R3Mod.cs" />
     <Compile Include="Patches\GenRecipe_MakeRecipeProducts.cs" />
@@ -89,10 +84,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="[Generated]\Defs.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Defs.cs</LastGenOutput>
-    </Content>
     <None Include="[Generated]\LanguageKeys.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LanguageKeys.cs</LastGenOutput>

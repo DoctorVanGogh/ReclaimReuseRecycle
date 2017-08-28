@@ -26,12 +26,6 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                                                                            .GroupBy(p => p.SpawnOnUnpack)
                                                                            .ToDictionary(g => g.Key, g => g.ToArray());
 
-            // "patch" harvest recipes to exclude all corpse elements that are not in fact corpses.... "Thanks rbb !!!"
-            var nonCorpseCorpses = ThingCategoryDefOf.Corpses.DescendantThingDefs.Where(td => !td.IsCorpse).ToArray();
-            foreach (var recipe in RecipeWorker_Harvest.HarvestFleshRecipes) {
-                recipe.fixedIngredientFilter.SetDisallowAll(nonCorpseCorpses);
-            }
-
         }
     }
 }

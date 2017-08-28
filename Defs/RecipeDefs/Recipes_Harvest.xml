@@ -16,7 +16,6 @@
 		<workSkill>Medicine</workSkill>
 		<effectWorking>Surgery</effectWorking>
 		<soundWorking>Recipe_Surgery</soundWorking>
-		<requiredGiverWorkType>Doctor</requiredGiverWorkType>
 		<ingredients>
 			<li>
 				<filter>
@@ -37,8 +36,7 @@
 		<workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
 		<workSkill>Crafting</workSkill>
 		<effectWorking>ButcherMechanoid</effectWorking>
-		<soundWorking>Recipe_ButcherCorpseMechanoid</soundWorking>
-		<requiredGiverWorkType>Crafting</requiredGiverWorkType>					
+		<soundWorking>Recipe_ButcherCorpseMechanoid</soundWorking>			
 		<ingredients>
 			<li>
 				<filter>

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using DoctorVanGogh.ReclaimReuseRecycle;
+using RimWorld;
 using Verse;
 
 namespace DoctorVanGogh.ReclaimReuseRecycle {
@@ -60,6 +61,16 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
     public class Filter_Harvested : Filter_Corpse {
         public Filter_Harvested()  : base(null){            
         }
+
+        #region HACKS for non corpse corpses - they always count as fully harvested.... "Thanks RBB!"
+        public override bool CanEverMatch(ThingDef def) {
+            return def.IsWithinCategory(ThingCategoryDefOf.Corpses);
+        }
+
+        protected override bool DoesMatch(Corpse corpse) {
+            return corpse == null || base.DoesMatch(corpse);
+        }
+        #endregion
     }
 
     public class Filter_Unharvested_Primitive : Filter_Corpse {
