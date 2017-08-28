@@ -5,7 +5,7 @@ branches:
   - master
 
 before_build:
-  - nuget restore
+  - nuget restore Source\ReclaimReuseRecycle.sln
 
 build:
   project: Source\ReclaimReuseRecycle.sln
