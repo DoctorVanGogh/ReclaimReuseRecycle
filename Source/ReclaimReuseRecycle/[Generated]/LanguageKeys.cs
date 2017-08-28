@@ -29,17 +29,13 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 			/// </summary>
 			public const string @R3_OriginalThing = "R3.OriginalThing";
 			/// <summary>
-			/// Get's the translation key for '<em>&lt;color=#aaffaaff&gt;Non-sterile {0}&lt;/color&gt;</em>'
+			/// Get's the translation key for '<em>&lt;color={1}&gt;{2} {0}&lt;/color&gt;</em>'
 			/// </summary>
-			public const string @R3_NonSterile_Label = "R3.NonSterile.Label";
+			public const string @R3_Label = "R3.Label";
 			/// <summary>
 			/// Get's the translation key for '<em>This is a {0} that was reclaimed from a corpse. It needs to be sterilized before it can be used again.</em>'
 			/// </summary>
 			public const string @R3_NonSterile_Description = "R3.NonSterile.Description";
-			/// <summary>
-			/// Get's the translation key for '<em>&lt;color=#ffffaaff&gt;Mangled {0}&lt;/color&gt;</em>'
-			/// </summary>
-			public const string @R3_Mangled_Label = "R3.Mangled.Label";
 			/// <summary>
 			/// Get's the translation key for '<em>This is a {0} that was reclaimed from a corpse. It is heavily damaged and need extensive refurbishment and sterilization before it can be used again.</em>'
 			/// </summary>
@@ -53,17 +49,21 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 			/// </summary>
 			public const string @R3_RangeExplanation = "R3.RangeExplanation";
 			/// <summary>
-			/// Get's the translation key for '<em>Recoverable as a &lt;b&gt;&lt;color=#ffffaaff&gt;Mangled&lt;/color&gt;&lt;/b&gt; item</em>'
+			/// Get's the translation key for '<em>Recoverable as a &lt;b&gt;&lt;color={0}&gt;{1}&lt;/color&gt;&lt;/b&gt; item</em>'
 			/// </summary>
-			public const string @R3_Mangled_Settings = "R3.Mangled.Settings";
-			/// <summary>
-			/// Get's the translation key for '<em>Recoverable as a &lt;b&gt;&lt;color=#aaffaaff&gt;Non-Sterile&lt;/color&gt;&lt;/b&gt; item</em>'
-			/// </summary>
-			public const string @R3_NonSterile_Settings = "R3.NonSterile.Settings";
+			public const string @R3_Settings_Recoverable = "R3.Settings.Recoverable";
 			/// <summary>
 			/// Get's the translation key for '<em>Complexity</em>'
 			/// </summary>
 			public const string @R3_Complexity = "R3.Complexity";
+			/// <summary>
+			/// Get's the translation key for '<em>Mangled</em>'
+			/// </summary>
+			public const string @R3_Reclamation_Mangled = "R3.Reclamation.Mangled";
+			/// <summary>
+			/// Get's the translation key for '<em>Non-sterile</em>'
+			/// </summary>
+			public const string @R3_Reclamation_NonSterile = "R3.Reclamation.NonSterile";
 		}
 	}
 }

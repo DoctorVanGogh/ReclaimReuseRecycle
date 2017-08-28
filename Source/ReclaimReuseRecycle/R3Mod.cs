@@ -89,7 +89,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
             const float sliderHeight = 26f;
 
             Text.Anchor = TextAnchor.MiddleLeft;
-            GUI.Label(new Rect(rect.x, y, rect.width*0.5f, sliderHeight), LanguageKeys.r3.R3_NonSterile_Settings.Translate());
+            GUI.Label(new Rect(rect.x, y, rect.width*0.5f, sliderHeight), LanguageKeys.r3.R3_Settings_Recoverable.Translate(ThingDefGenerator_Reclaimed.NonSterileColorHex, ReclamationType.NonSterile.Translate()));
             Text.Anchor = TextAnchor.UpperLeft;
             Widgets.FloatRange(new Rect(rect.width*0.5f, y, rect.width*0.5f, sliderHeight), 1, ref Settings.NonSterileRange, 0f, 1f, "HitPoints", ToStringStyle.PercentZero);
             y += sliderHeight + 5f;
@@ -98,7 +98,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
             Settings.MangledRange.min = Math.Min(Settings.MangledRange.max, Settings.MangledRange.min);
 
             Text.Anchor = TextAnchor.MiddleLeft;
-            GUI.Label(new Rect(rect.x, y, rect.width * 0.5f, sliderHeight), LanguageKeys.r3.R3_Mangled_Settings.Translate());
+            GUI.Label(new Rect(rect.x, y, rect.width * 0.5f, sliderHeight), LanguageKeys.r3.R3_Settings_Recoverable.Translate(ThingDefGenerator_Reclaimed.MangledColorHex, ReclamationType.Mangled.Translate()));
             Text.Anchor = TextAnchor.UpperLeft;
             Widgets.FloatRange(new Rect(rect.width * 0.5f , y, rect.width * 0.5f, sliderHeight), 2, ref Settings.MangledRange, 0f, 1f, "HitPoints", ToStringStyle.PercentZero);
             y += sliderHeight + 5f;
