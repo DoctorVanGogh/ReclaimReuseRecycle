@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<WorkGivers>
+
+<!-- 
+  removed for now... leads to duplicate 'Prioritize X' options...
+
+ <WorkGivers>
   <WorkGiverDef Name="DoBillsHarvest" Abstract="True">
     <label>harvest corpses</label>
     <giverClass>WorkGiver_DoBill</giverClass>
@@ -11,8 +15,7 @@
     </requiredCapacities>
     <prioritizeSustains>true</prioritizeSustains>
   </WorkGiverDef>
-
-  <!-- Harvest -->
+  
 
   <WorkGiverDef ParentName="DoBillsHarvest">
     <defName>DoBillsHarvestFlesh</defName>
@@ -29,11 +32,6 @@
         <li>TableMachining</li>
     </fixedBillGiverDefs> 
   </WorkGiverDef>
-
-  <!-- refurbish -->
-
-
-  <!-- 
   
   ** removed** 
 
