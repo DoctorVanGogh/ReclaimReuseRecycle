@@ -60,17 +60,18 @@
     <Compile Include="Patches\DefGenerator_GenerateImpliedDefs_PreResolve.cs" />
     <Compile Include="Patches\InjuryDebug.cs" />
     <Compile Include="R3Mod.Settings.cs" />
+    <Compile Include="[Generated]\R3DefOf.cs" />
     <Compile Include="[Model]\Complexity.cs" />
     <Compile Include="[Model]\ReclamationType.cs" />
     <Compile Include="[Model]\StatPart_Reclaimed.cs" />
     <Compile Include="[Model]\ThingDefGenerator_Reclaimed.cs" />
     <Compile Include="Util\HarvestUtility.cs" />
     <Compile Include="[Model]\RecipeWorker.cs" />
-    <Compile Include="[Generated]\Defs.cs">
+    <None Include="[Generated]\Defs.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Defs.tt</DependentUpon>
-    </Compile>
+    </None>
     <Compile Include="[Model]\PackedThing.cs" />
     <Compile Include="R3Mod.cs" />
     <Compile Include="Patches\GenRecipe_MakeRecipeProducts.cs" />

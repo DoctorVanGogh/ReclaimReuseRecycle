@@ -24,7 +24,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
             var thingDefs = DefDatabase<HediffDef>.AllDefs
                                                   .Where(d => validHediffs.Contains(d.hediffClass)
                                                               && d.spawnThingOnRemoved != null
-                                                              && true != d.spawnThingOnRemoved.thingCategories?.Contains(DefReferences.ThingCategory_BodyPartsNatural))
+                                                              && true != d.spawnThingOnRemoved.thingCategories?.Contains(R3DefOf.BodyPartsNatural))
                                                   .Select(d => d.spawnThingOnRemoved)
                                                   .Distinct();
             // prepare recipes/research to have researchproject's techlevel as fallback values
@@ -105,15 +105,19 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                                    ReclamationType = type,                                  
                                };
 
-            d.statBases.Add(new StatModifier {stat = DefReferences.Stat_MaxHitPoints, value = 50f});
-            d.statBases.Add(new StatModifier {stat = DefReferences.Stat_DeteriorationRate, value = 2f});
-            d.statBases.Add(new StatModifier {stat = DefReferences.Stat_Beauty, value = -8f});
-            var value = t.statBases.FirstOrDefault(sb => sb.stat == DefReferences.Stat_MarketValue)?.value;
-            if (value != null)
-                d.statBases.Add(new StatModifier {stat = DefReferences.Stat_MarketValue, value = value.Value});
-            d.statBases.Add(new StatModifier {stat = DefReferences.Stat_Mass, value = t.statBases.FirstOrDefault(sb => sb.stat == DefReferences.Stat_Mass)?.value ?? 0.2f});
+            StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.MaxHitPoints,  50f);
+            StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.DeteriorationRate, 2f);
+            StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.Beauty, -8f);
 
-            d.Complexity = GetComplexity(d, value, d.techLevel, researchTechlevel);
+            float? marketValue = null;
+
+            if (t.statBases.StatListContains(StatDefOf.MarketValue)) {
+                marketValue = t.statBases.GetStatValueFromList(StatDefOf.MarketValue, 0f);
+                StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.MarketValue, marketValue.Value);
+            }
+            StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.Mass, t.statBases.GetStatValueFromList(StatDefOf.Mass, 0.2f));
+
+            d.Complexity = GetComplexity(d, marketValue, d.techLevel, researchTechlevel);
 
             DirectXmlCrossRefLoader.RegisterListWantsCrossRef(d.thingCategories, GetThingCategoryDef(t, d.Complexity, type).defName);                 // because.... "magic"
 
@@ -125,30 +129,30 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                 case ReclamationType.NonSterile:
                     switch (complexity) {
                         case Complexity.Primitive:
-                            return DefReferences.ThingCategory_BodyPartsNonSterile_Primitive;
+                            return R3DefOf.BodyPartsNonSterile_Primitive;
                         case Complexity.Advanced:
-                            return DefReferences.ThingCategory_BodyPartsNonSterile_Advanced;
+                            return R3DefOf.BodyPartsNonSterile_Advanced;
                         case Complexity.Glittertech:
-                            return DefReferences.ThingCategory_BodyPartsNonSterile_Glittertech;
+                            return R3DefOf.BodyPartsNonSterile_Glittertech;
                         default:
                             Util.Warning($"Unknown complexity {complexity} used for {t.LabelCap}.");
-                            return DefReferences.ThingCategory_BodyPartsNonSterile;
+                            return R3DefOf.BodyPartsNonSterile;
                     }
                 case ReclamationType.Mangled:
                     switch (complexity) {
                         case Complexity.Primitive:
-                            return DefReferences.ThingCategory_BodyPartsMangled_Primitive;
+                            return R3DefOf.BodyPartsMangled_Primitive;
                         case Complexity.Advanced:
-                            return DefReferences.ThingCategory_BodyPartsMangled_Advanced;
+                            return R3DefOf.BodyPartsMangled_Advanced;
                         case Complexity.Glittertech:
-                            return DefReferences.ThingCategory_BodyPartsMangled_Glittertech;
+                            return R3DefOf.BodyPartsMangled_Glittertech;
                         default:
                             Util.Warning($"Unknown complexity {complexity} used for {t.LabelCap}.");
-                            return DefReferences.ThingCategory_BodyPartsMangled;
+                            return R3DefOf.BodyPartsMangled;
                     }
                 default:
                     Util.Warning($"Unknown reclamation type {type} used for {t.LabelCap}.");
-                    return DefReferences.ThingCategory_BodyPartsReclaimed;
+                    return R3DefOf.BodyPartsReclaimed;
             }
 
         }

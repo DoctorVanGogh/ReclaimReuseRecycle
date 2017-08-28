@@ -30,5 +30,6 @@ When you refuse to reuse it’s your Rimworld you abuse.]]></R3.Tagline>
     <R3.Mangled.Settings><![CDATA[Recoverable as a <b><color=#ffffaaff>Mangled</color></b> item]]></R3.Mangled.Settings>
     <R3.NonSterile.Settings><![CDATA[Recoverable as a <b><color=#aaffaaff>Non-Sterile</color></b> item]]></R3.NonSterile.Settings>     
 
+    <R3.Complexity>Complexity</R3.Complexity>
 
 </LanguageData>

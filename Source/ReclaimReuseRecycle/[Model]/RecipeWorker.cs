@@ -15,15 +15,15 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         }
 
         public static RecipeDef[] HarvestFleshRecipes = new[] {
-                                                             DefReferences.Recipe_R3_HarvestCorpseFlesh_Primitive,
-                                                             DefReferences.Recipe_R3_HarvestCorpseFlesh_Advanced,
-                                                             DefReferences.Recipe_R3_HarvestCorpseFlesh_Glittertech
+                                                             R3DefOf.R3_HarvestCorpseFlesh_Primitive,
+                                                             R3DefOf.R3_HarvestCorpseFlesh_Advanced,
+                                                             R3DefOf.R3_HarvestCorpseFlesh_Glittertech
                                                          };
 
         public static RecipeDef[] HarvestMechanoidRecipes = new[] {
-                                                                 DefReferences.Recipe_R3_HarvestCorpseMechanoid_Primitive,
-                                                                 DefReferences.Recipe_R3_HarvestCorpseMechanoid_Advanced,
-                                                                 DefReferences.Recipe_R3_HarvestCorpseMechanoid_Glittertech
+                                                                 R3DefOf.R3_HarvestCorpseMechanoid_Primitive,
+                                                                 R3DefOf.R3_HarvestCorpseMechanoid_Advanced,
+                                                                 R3DefOf.R3_HarvestCorpseMechanoid_Glittertech
                                                              };
     }
 }

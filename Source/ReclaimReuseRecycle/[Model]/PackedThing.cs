@@ -28,10 +28,10 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats {
             get {
 
-                yield return new StatDrawEntry(DefReferences.StatCategory_ReclaimedItem, LanguageKeys.r3.R3_OriginalThing.Translate(), packedDef.SpawnOnUnpack.LabelCap) {
+                yield return new StatDrawEntry(R3DefOf.ReclaimedItem, LanguageKeys.r3.R3_OriginalThing.Translate(), packedDef.SpawnOnUnpack.LabelCap) {
                                  overrideReportText = packedDef.SpawnOnUnpack.description
                              };
-                yield return new StatDrawEntry(DefReferences.StatCategory_ReclaimedItem, "Complexity", this.packedDef.Complexity.ToString());
+                yield return new StatDrawEntry(R3DefOf.ReclaimedItem, LanguageKeys.r3.R3_Complexity.Translate(), this.packedDef.Complexity.ToString());
             }
         }
 

@@ -14,12 +14,12 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         private static Thing[] Empty = new Thing[0];
 
         private static RecipeDef[] ReclamationRecipes = new[] {
-                                                            DefReferences.Recipe_R3_Refurbish_Primitive,
-                                                            DefReferences.Recipe_R3_Refurbish_Advanced,
-                                                            DefReferences.Recipe_R3_Refurbish_Glittertech,
-                                                            DefReferences.Recipe_R3_Sterilize_Primitive,
-                                                            DefReferences.Recipe_R3_Sterilize_Advanced,
-                                                            DefReferences.Recipe_R3_Sterilize_Glittertech
+                                                            R3DefOf.R3_Refurbish_Primitive,
+                                                            R3DefOf.R3_Refurbish_Advanced,
+                                                            R3DefOf.R3_Refurbish_Glittertech,
+                                                            R3DefOf.R3_Sterilize_Primitive,
+                                                            R3DefOf.R3_Sterilize_Advanced,
+                                                            R3DefOf.R3_Sterilize_Glittertech
                                                         };
 
         public static void Postfix(ref IEnumerable<Thing> __result, RecipeDef recipeDef, Pawn worker, List<Thing> ingredients, Thing dominantIngredient) {
