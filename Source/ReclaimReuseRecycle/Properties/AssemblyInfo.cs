@@ -12,6 +12,6 @@
 [assembly: System.Reflection.AssemblyCopyright("Copyright © DoctorVanGogh 2017")]
 [assembly: System.Runtime.InteropServices.ComVisible(false)]
 [assembly: System.Runtime.InteropServices.Guid("1ac8c55d-c840-4adf-be16-2f5ef3f3a601")]
-[assembly: System.Reflection.AssemblyVersion("1.0.1.148")]
+[assembly: System.Reflection.AssemblyVersion("1.0.1.149")]
 
 

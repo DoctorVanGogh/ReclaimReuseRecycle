@@ -37,22 +37,24 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                 return (race.IsMechanoid && !GetReclaimablePartsMechanoid(race, diffSet, healthTracker).Any())
                        || ((race.Humanlike || race.Animal) && !GetReclaimablePartsOrganic(race, diffSet, healthTracker).Any());
 
-            return (race.IsMechanoid && GetReclaimablePartsMechanoid(race, diffSet, healthTracker).Any(pd => pd?.Complexity == _complexity))
-                   || ((race.Humanlike || race.Animal) && GetReclaimablePartsOrganic(race, diffSet, healthTracker).Any(pd => pd?.Complexity == _complexity));
+            return (race.IsMechanoid && GetReclaimablePartsMechanoid(race, diffSet, healthTracker).Any(pd => pd.Complexity == _complexity))
+                   || ((race.Humanlike || race.Animal) && GetReclaimablePartsOrganic(race, diffSet, healthTracker).Any(pd => pd.Complexity == _complexity));
 
         }
 
         private static IEnumerable<PackedThingDef> GetReclaimablePartsMechanoid(RaceProperties race, HediffSet diffSet, Pawn_HealthTracker healthTracker) {
             return diffSet.GetNotMissingParts()
                 .Where(bpr => bpr.def.spawnThingOnRemoved != null)
-                .Select(bpr => ThingDefGenerator_Reclaimed.GetExtractableDef(bpr.def.spawnThingOnRemoved, Util.HitpointsFactor(bpr, diffSet)));
+                .Select(bpr => ThingDefGenerator_Reclaimed.GetExtractableDef(bpr.def.spawnThingOnRemoved, Util.HitpointsFactor(bpr, diffSet)))
+                .Where(d => d != null);
         }
 
 
         private static IEnumerable<PackedThingDef> GetReclaimablePartsOrganic(RaceProperties race, HediffSet diffSet, Pawn_HealthTracker healthTracker) {
             return diffSet.hediffs
                           .Where(d => (d is Hediff_Implant || d is Hediff_AddedPart) && d.def.spawnThingOnRemoved != null)
-                          .Select(d => ThingDefGenerator_Reclaimed.GetExtractableDef(d.def.spawnThingOnRemoved, Util.HitpointsFactor(d.Part, diffSet)));
+                          .Select(d => ThingDefGenerator_Reclaimed.GetExtractableDef(d.def.spawnThingOnRemoved, Util.HitpointsFactor(d.Part, diffSet)))
+                          .Where(d => d != null);
         }
         
     }
