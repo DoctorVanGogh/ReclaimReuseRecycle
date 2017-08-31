@@ -37,8 +37,8 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                 return (race.IsMechanoid && !GetReclaimablePartsMechanoid(race, diffSet, healthTracker).Any())
                        || ((race.Humanlike || race.Animal) && !GetReclaimablePartsOrganic(race, diffSet, healthTracker).Any());
 
-            return (race.IsMechanoid && GetReclaimablePartsMechanoid(race, diffSet, healthTracker).Any(pd => pd.Complexity == _complexity))
-                   || ((race.Humanlike || race.Animal) && GetReclaimablePartsOrganic(race, diffSet, healthTracker).Any(pd => pd.Complexity == _complexity));
+            return (race.IsMechanoid && GetReclaimablePartsMechanoid(race, diffSet, healthTracker).Any(pd => pd?.Complexity == _complexity))
+                   || ((race.Humanlike || race.Animal) && GetReclaimablePartsOrganic(race, diffSet, healthTracker).Any(pd => pd?.Complexity == _complexity));
 
         }
 
