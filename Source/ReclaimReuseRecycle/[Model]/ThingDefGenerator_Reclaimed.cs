@@ -15,8 +15,8 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
         public static readonly string MangledDefNameFormat = @"Mangled_{0}";
 
-        public static readonly Color MangledColor = new Color(0.67f, 1f, 0.67f, 1f);
-        public static readonly Color NonSterileColor = new Color(1f, 1f, 0.67f, 1f);
+        public static readonly Color MangledColor = new Color(1f, 1f, 0.67f, 1f);
+        public static readonly Color NonSterileColor = new Color(0.67f, 1f, 0.67f, 1f);
 
         public static readonly string MangledColorHex = MangledColor.ToHexColor();
         public static readonly string NonSterileColorHex = NonSterileColor.ToHexColor();
