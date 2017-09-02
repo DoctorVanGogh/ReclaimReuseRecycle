@@ -122,5 +122,21 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                 totalDamage -= num;
             }
         }
+
+
+        public static IEnumerable<PackedThingDef> GetExtractableThings(Corpse corpse) {
+            if (corpse != null) {
+                RaceProperties race = corpse.InnerPawn.RaceProps;
+                Pawn_HealthTracker healthTracker = corpse.InnerPawn.health;
+                HediffSet diffSet = healthTracker.hediffSet;
+
+                if (race.IsMechanoid)
+                    return Filter_Corpse.GetReclaimablePartsMechanoid(race, diffSet, healthTracker);
+                if (race.Humanlike || race.Animal)
+                    return Filter_Corpse.GetReclaimablePartsOrganic(race, diffSet, healthTracker);
+            }
+
+            return Enumerable.Empty<PackedThingDef>();
+        }
     }
 }

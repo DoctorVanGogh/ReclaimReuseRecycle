@@ -42,7 +42,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
         }
 
-        private static IEnumerable<PackedThingDef> GetReclaimablePartsMechanoid(RaceProperties race, HediffSet diffSet, Pawn_HealthTracker healthTracker) {
+        public static IEnumerable<PackedThingDef> GetReclaimablePartsMechanoid(RaceProperties race, HediffSet diffSet, Pawn_HealthTracker healthTracker) {
             return diffSet.GetNotMissingParts()
                 .Where(bpr => bpr.def.spawnThingOnRemoved != null)
                 .Select(bpr => ThingDefGenerator_Reclaimed.GetExtractableDef(bpr.def.spawnThingOnRemoved, Util.HitpointsFactor(bpr, diffSet)))
@@ -50,7 +50,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         }
 
 
-        private static IEnumerable<PackedThingDef> GetReclaimablePartsOrganic(RaceProperties race, HediffSet diffSet, Pawn_HealthTracker healthTracker) {
+        public static IEnumerable<PackedThingDef> GetReclaimablePartsOrganic(RaceProperties race, HediffSet diffSet, Pawn_HealthTracker healthTracker) {
             return diffSet.hediffs
                           .Where(d => (d is Hediff_Implant || d is Hediff_AddedPart) && d.def.spawnThingOnRemoved != null)
                           .Select(d => ThingDefGenerator_Reclaimed.GetExtractableDef(d.def.spawnThingOnRemoved, Util.HitpointsFactor(d.Part, diffSet)))

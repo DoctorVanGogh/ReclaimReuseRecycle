@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Patches\Corpse_SpecialDisplayStats.cs" />
     <Compile Include="Patches\DefGenerator_GenerateImpliedDefs_PostResolve.cs" />
     <Compile Include="Patches\DefGenerator_GenerateImpliedDefs_PreResolve.cs" />
     <Compile Include="Patches\InjuryDebug.cs" />

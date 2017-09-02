@@ -57,6 +57,10 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 			/// </summary>
 			public const string @R3_Complexity = "R3.Complexity";
 			/// <summary>
+			/// Get's the translation key for '<em>Max. Complexity</em>'
+			/// </summary>
+			public const string @R3_MaxComplexity = "R3.MaxComplexity";
+			/// <summary>
 			/// Get's the translation key for '<em>Mangled</em>'
 			/// </summary>
 			public const string @R3_Reclamation_Mangled = "R3.Reclamation.Mangled";

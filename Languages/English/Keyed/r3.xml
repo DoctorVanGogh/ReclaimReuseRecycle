@@ -29,7 +29,8 @@ When you refuse to reuse it’s your Rimworld you abuse.]]></R3.Tagline>
     <R3.Settings.Recoverable><![CDATA[Recoverable as a <b><color={0}>{1}</color></b> item]]></R3.Settings.Recoverable>
 
     <R3.Complexity>Complexity</R3.Complexity>
-    
+    <R3.MaxComplexity>Max. Complexity</R3.MaxComplexity>
+       
     <R3.Reclamation.Mangled>Mangled</R3.Reclamation.Mangled>
     <R3.Reclamation.NonSterile>Non-sterile</R3.Reclamation.NonSterile>
 
