@@ -12,7 +12,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
             _complexity = complexity;            
         }
 
-        public sealed override bool Matches(Thing t) {
+        public override bool Matches(Thing t) {
             return DoesMatch(t as Corpse);
         }
 
@@ -67,6 +67,10 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         #region HACKS for non corpse corpses - they always count as fully harvested.... "Thanks RBB!"
         public override bool CanEverMatch(ThingDef def) {
             return def.IsWithinCategory(ThingCategoryDefOf.Corpses);
+        }
+
+        public override bool Matches(Thing t) {
+            return CanEverMatch(t.def) && base.Matches(t);
         }
 
         protected override bool DoesMatch(Corpse corpse) {
