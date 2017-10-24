@@ -13,23 +13,24 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
             float num = 1.5f;
             num *= worker.GetStatValue((!race.IsMechanoid) ? StatDefOf.MedicalSurgerySuccessChance : StatDefOf.MechanoidOperationSuccessChance, true);
-            Room room = worker.GetRoom(RegionType.Set_Passable);
-            if (room != null && !race.IsMechanoid) {
-                num *= room.GetStat(RoomStatDefOf.SurgerySuccessChanceFactor);
-            }
+            /*
+             * TODO: check a18 logic change
+            if (patient.InBed()) {
+                num *= patient.CurrentBed().GetStatValue(StatDefOf.SurgerySuccessChanceFactor, true);
+            }*/
 
             if (Rand.Value > num) {
                 if (Rand.Value < 0.5f) {
                     if (Rand.Value < 0.1f) {
-                        Messages.Message($"{worker.LabelShort} has failed in a ridiculous way while trying to harvest {label}.", MessageSound.SeriousAlert);
+                        Messages.Message($"{worker.LabelShort} has failed in a ridiculous way while trying to harvest {label}.", MessageTypeDefOf.NegativeEvent);
                         GiveInjuriesOperationFailureRidiculousUnrestricted(corpse.InnerPawn);
                         return null;
                     }
-                    Messages.Message($"{worker.LabelShort} has failed in a catastrophic way while trying to harvest {label}.", MessageSound.SeriousAlert);
+                    Messages.Message($"{worker.LabelShort} has failed in a catastrophic way while trying to harvest {label}.", MessageTypeDefOf.NegativeEvent);
                     GiveInjuriesOperationFailureCatastrophicUnrestricted(corpse.InnerPawn, part);                    
                     return null;
                 }
-                Messages.Message($"{worker.LabelShort} has failed in a minor way while trying to harvest {label}.", MessageSound.Negative);
+                Messages.Message($"{worker.LabelShort} has failed in a minor way while trying to harvest {label}.", MessageTypeDefOf.NegativeEvent);
                 GiveInjuriesOperationFailureMinorUnrestricted(corpse.InnerPawn, part);
             }
             float hpFactor = Util.HitpointsFactor(part, diffSet);

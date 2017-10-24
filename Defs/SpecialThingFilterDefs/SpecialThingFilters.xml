@@ -1,4 +1,4 @@
-<SpecialThingFilters>
+<Defs>
 
 	<SpecialThingFilterDef>
 		<defName>R3_AllowHarvested</defName>
@@ -40,4 +40,4 @@
 		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.Filter_Unharvested_Glittertech</workerClass>
 	</SpecialThingFilterDef>	
 
-</SpecialThingFilters>
+</Defs>

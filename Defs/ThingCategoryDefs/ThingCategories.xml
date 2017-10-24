@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingCategoryDefs>
+<Defs>
   <ThingCategoryDef>
     <defName>BodyPartsReclaimed</defName>
     <label>Reclaimed Body Parts</label>
@@ -50,4 +50,4 @@
     <parent>BodyPartsMangled</parent>
   </ThingCategoryDef>
 
-</ThingCategoryDefs>
+</Defs>

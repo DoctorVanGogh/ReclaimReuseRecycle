@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<RecipeDefs>
+<Defs>
 
 	<!-- prototypes -->
 
@@ -26,9 +26,9 @@
 				<count>1</count>
 			</li>
 		</ingredients>			
-		<RecipeUsers>
+		<recipeUsers>
 			<li>TableButcher</li>
-		</RecipeUsers>		
+		</recipeUsers>		
 	</RecipeDef>
 
 
@@ -47,9 +47,9 @@
 				<count>1</count>
 			</li>
 		</ingredients>		
-		<RecipeUsers>
+		<recipeUsers>
 			<li>TableMachining</li>
-		</RecipeUsers>
+		</recipeUsers>
 	</RecipeDef>
 
 
@@ -171,4 +171,4 @@
 		</fixedIngredientFilter>									
 	</RecipeDef>	
 
-</RecipeDefs>
+</Defs>
