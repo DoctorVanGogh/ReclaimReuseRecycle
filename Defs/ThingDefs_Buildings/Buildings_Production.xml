@@ -36,24 +36,11 @@
 		</placeWorkers>
   </ThingDef>
 
-  <ThingDef ParentName="BenchBase">
-    <defName>R3_TableHarvesting</defName>
-    <label>harvesting table</label>
-    <thingClass>Building_WorkTable</thingClass>
-    <description>A worktable to harvest parts &amp; implants from deceased creatures &amp; mechanoids..</description>
-    <graphicData>
-      <texPath>Things/Building/Production/HarvestingBench</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.5,1.5)</drawSize>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
-    </graphicData>
+ <ThingDef Name="R3_Bench" ParentName="BenchBase" Abstract="True">
+    <thingClass>Building_WorkTable</thingClass> 
     <costStuffCount>75</costStuffCount>
     <stuffCategories>
+      <li>Woody</li>    
       <li>Metallic</li>
     </stuffCategories>
     <altitudeLayer>Building</altitudeLayer>
@@ -70,29 +57,89 @@
     <passability>PassThroughOnly</passability>
     <pathCost>60</pathCost>
     <hasInteractionCell>True</hasInteractionCell>
-    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
     <surfaceType>Item</surfaceType>
-    <recipes>
-      <li>ButcherCorpseFlesh</li>
-      <li>MakeKibble</li>
-    </recipes>
     <inspectorTabs>
       <li>ITab_Bills</li>
     </inspectorTabs>
     <building>
       <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
 		</building>
-    <comps>
-      <li Class="CompProperties_AffectedByFacilities">
-        <linkableFacilities>
-          <li>ToolCabinet</li>
-        </linkableFacilities>
-      </li>
-    </comps>
     <designationHotKey>Misc3</designationHotKey>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 		</placeWorkers>
+  </ThingDef>  
+
+
+  <ThingDef ParentName="R3_Bench">
+    <defName>R3_TableHarvesting</defName>
+    <label>harvesting table</label>
+    <description>A worktable to harvest parts &amp; implants from deceased creatures &amp; mechanoids. Benefits from being placed near a refurbishment table.</description>
+    <graphicData>
+      <texPath>Things/Building/Production/HarvestingBench</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2.5,1.25)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>    
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>    
+    <recipes>
+      <li>ButcherCorpseFlesh</li>
+      <li>MakeKibble</li>
+    </recipes>  
+    <comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>R3_TableRefurbishment</li>
+        </linkableFacilities>
+      </li>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <WorkTableWorkSpeedFactor>1.00</WorkTableWorkSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>      
+    </comps>    
   </ThingDef>
-  
+
+  <ThingDef ParentName="R3_Bench">
+    <defName>R3_TableRefurbishment</defName>
+    <label>refurbishment table</label>
+    <description>A worktable to refurbish and clean reclaimed parts &amp; implants. Benefits from being placed near a harvesting table.</description>
+    <graphicData>
+      <texPath>Things/Building/Production/RefurbishmentBench</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2.5,1.25)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>  
+    <interactionCellOffset>(1,0,-1)</interactionCellOffset>  
+    <recipes>
+      <li>ButcherCorpseFlesh</li>
+      <li>MakeKibble</li>
+    </recipes>    
+    <comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>R3_TableHarvesting</li>
+        </linkableFacilities>
+      </li>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <WorkTableWorkSpeedFactor>1.00</WorkTableWorkSpeedFactor>
+          <MedicalSurgerySuccessChance>0.5</MedicalSurgerySuccessChance>
+          <MechanoidOperationSuccessChance>0.5</MechanoidOperationSuccessChance>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>      
+    </comps>    
+  </ThingDef>  
 </Defs>
