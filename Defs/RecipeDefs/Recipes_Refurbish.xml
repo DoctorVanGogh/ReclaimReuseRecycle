@@ -7,7 +7,7 @@
 		<effectWorking>Surgery</effectWorking>
 		<soundWorking>Recipe_Surgery</soundWorking>		
 		<recipeUsers>
-			<li>DrugLab</li>
+			<li>R3_TableRefurbishment</li>
 		</recipeUsers>		
 	</RecipeDef>
 
@@ -55,7 +55,7 @@
 		<skillRequirements>
 			<Crafting>6</Crafting>
 		</skillRequirements>
-		<researchPrerequisite>BasicRefurbishment</researchPrerequisite>
+		<researchPrerequisite>R3_BasicRefurbishment</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="R3_SterilizePart">
@@ -91,7 +91,7 @@
 		<skillRequirements>
 			<Crafting>4</Crafting>
 		</skillRequirements>
-		<researchPrerequisite>AdvancedRefurbishment</researchPrerequisite>		
+		<researchPrerequisite>R3_AdvancedRefurbishment</researchPrerequisite>		
 	</RecipeDef>
 	<RecipeDef ParentName="R3_SterilizePart">
 		<defName>R3_Sterilize_Glittertech</defName>
@@ -126,7 +126,7 @@
 		<skillRequirements>
 			<Crafting>6</Crafting>
 		</skillRequirements>
-		<researchPrerequisite>GlittertechRefurbishment</researchPrerequisite>		
+		<researchPrerequisite>R3_GlittertechRefurbishment</researchPrerequisite>		
 	</RecipeDef>	
 
 	<RecipeDef ParentName="R3_RefurbishPart">
@@ -180,7 +180,7 @@
 		<skillRequirements>
 			<Crafting>6</Crafting>			
 		</skillRequirements>
-		<researchPrerequisite>BasicRefurbishment</researchPrerequisite>		
+		<researchPrerequisite>R3_BasicRefurbishment</researchPrerequisite>		
 	</RecipeDef>
 	<RecipeDef ParentName="R3_RefurbishPart">
 		<defName>R3_Refurbish_Advanced</defName>
@@ -233,7 +233,7 @@
 		<skillRequirements>
 			<Crafting>8</Crafting>
 		</skillRequirements>
-		<researchPrerequisite>AdvancedRefurbishment</researchPrerequisite>		
+		<researchPrerequisite>R3_AdvancedRefurbishment</researchPrerequisite>		
 	</RecipeDef>
 	<RecipeDef ParentName="R3_RefurbishPart">
 		<defName>R3_Refurbish_Glittertech</defName>
@@ -286,6 +286,6 @@
 		<skillRequirements>			
 			<Crafting>10</Crafting>			
 		</skillRequirements>
-		<researchPrerequisite>GlittertechRefurbishment</researchPrerequisite>		
+		<researchPrerequisite>R3_GlittertechRefurbishment</researchPrerequisite>		
 	</RecipeDef>	
 </Defs>

@@ -11,13 +11,13 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         // <see creg="Recipe_Surgery.CheckSurgeryFail" />
         internal static Thing TryExtractPart(Pawn worker, Corpse corpse, RaceProperties race, HediffSet diffSet, string label, BodyPartRecord part, ThingDef spawn) {
 
-            float num = 1.5f;
-            num *= worker.GetStatValue((!race.IsMechanoid) ? StatDefOf.MedicalSurgerySuccessChance : StatDefOf.MechanoidOperationSuccessChance, true);
-            /*
-             * TODO: check a18 logic change
-            if (patient.InBed()) {
-                num *= patient.CurrentBed().GetStatValue(StatDefOf.SurgerySuccessChanceFactor, true);
-            }*/
+            float num = 1f;
+            StatDef operationStat = !race.IsMechanoid ? StatDefOf.MedicalSurgerySuccessChance : StatDefOf.MechanoidOperationSuccessChance;
+
+            // basic worker stat
+            num *= worker.GetStatValue(operationStat, true);
+            // apply linked workbench offsets
+            num *= (1.0f + (corpse.Map.thingGrid.ThingAt(corpse.Position, R3DefOf.R3_TableHarvesting) as Building_WorkTable)?.TryGetComp<CompAffectedByFacilities>()?.GetStatOffset(operationStat) ?? 0f);
 
             if (Rand.Value > num) {
                 if (Rand.Value < 0.5f) {

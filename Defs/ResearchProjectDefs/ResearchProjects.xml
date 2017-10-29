@@ -9,7 +9,7 @@
     <!-- Harvesting -->
 
 	<ResearchProjectDef>
-		<defName>BasicHarvesting</defName>
+		<defName>R3_BasicHarvesting</defName>
 		<label>Basic Harvesting</label>
 		<description>Knowledge how to extract parts of basic complexity from corpses.</description>
 		<baseCost>500</baseCost>
@@ -23,7 +23,7 @@
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
-		<defName>AdvancedHarvesting</defName>
+		<defName>R3_AdvancedHarvesting</defName>
 		<label>Advanced Harvesting</label>
 		<description>Knowledge how to extract parts of advanced complexity from corpses.</description>
 		<baseCost>750</baseCost>
@@ -32,7 +32,7 @@
 		<researchViewX>2</researchViewX>
 		<researchViewY>0</researchViewY>
         <prerequisites>
-            <li>BasicHarvesting</li>
+            <li>R3_BasicHarvesting</li>
         </prerequisites>
 		<tags>
 			<li>ClassicStart</li>
@@ -40,7 +40,7 @@
 	</ResearchProjectDef>
 
  	<ResearchProjectDef>
-		<defName>GlittertechHarvesting</defName>
+		<defName>R3_GlittertechHarvesting</defName>
 		<label>Glittertech Harvesting</label>
 		<description>Knowledge how to extract parts of Glittertech complexity from corpses.</description>
 		<baseCost>1000</baseCost>
@@ -49,7 +49,7 @@
 		<researchViewX>4</researchViewX>
 		<researchViewY>0</researchViewY>		      
         <prerequisites>
-            <li>AdvancedHarvesting</li>
+            <li>R3_AdvancedHarvesting</li>
         </prerequisites>
 	</ResearchProjectDef> 
 
@@ -57,7 +57,7 @@
     <!-- refurbishment -->
 
 	<ResearchProjectDef>
-		<defName>BasicRefurbishment</defName>
+		<defName>R3_BasicRefurbishment</defName>
 		<label>Basic Refurbishment</label>
 		<description>Knowledge how to sterilze &amp; refurbish reclaimed parts of basic complexity.</description>
 		<baseCost>500</baseCost>
@@ -66,7 +66,7 @@
 		<researchViewX>1</researchViewX>
 		<researchViewY>1</researchViewY>
         <prerequisites>
-            <li>BasicHarvesting</li>
+            <li>R3_BasicHarvesting</li>
         </prerequisites>        
 		<tags>
 			<li>ClassicStart</li>
@@ -74,7 +74,7 @@
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
-		<defName>AdvancedRefurbishment</defName>
+		<defName>R3_AdvancedRefurbishment</defName>
 		<label>Advanced Refurbishment</label>
 		<description>Knowledge how to sterilze &amp; refurbish reclaimed parts of advanced complexity.</description>
 		<baseCost>750</baseCost>
@@ -83,13 +83,13 @@
 		<researchViewX>3</researchViewX>
 		<researchViewY>1</researchViewY>
         <prerequisites>
-            <li>BasicRefurbishment</li>
-            <li>AdvancedHarvesting</li>            
+            <li>R3_BasicRefurbishment</li>
+            <li>R3_AdvancedHarvesting</li>            
         </prerequisites>           
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
-		<defName>GlittertechRefurbishment</defName>
+		<defName>R3_GlittertechRefurbishment</defName>
 		<label>Glittertech Refurbishment</label>
 		<description>Knowledge how to sterilze &amp; refurbish reclaimed parts of Glittertech complexity.</description>
 		<baseCost>1000</baseCost>
@@ -98,8 +98,8 @@
 		<researchViewX>5</researchViewX>
 		<researchViewY>1</researchViewY>
         <prerequisites>
-            <li>AdvancedRefurbishment</li>
-            <li>GlittertechHarvesting</li>            
+            <li>R3_AdvancedRefurbishment</li>
+            <li>R3_GlittertechHarvesting</li>            
         </prerequisites>        		   
 	</ResearchProjectDef>
 

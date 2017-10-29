@@ -36,8 +36,7 @@
 		</placeWorkers>
   </ThingDef>
 
- <ThingDef Name="R3_Bench" ParentName="BenchBase" Abstract="True">
-    <thingClass>Building_WorkTable</thingClass> 
+ <ThingDef Name="R3_Bench" ParentName="BenchBase" Abstract="True">   
     <costStuffCount>75</costStuffCount>
     <stuffCategories>
       <li>Woody</li>    
@@ -46,12 +45,6 @@
     <altitudeLayer>Building</altitudeLayer>
     <fillPercent>0.5</fillPercent>
     <useHitPoints>True</useHitPoints>
-    <statBases>
-      <WorkToBuild>2000</WorkToBuild>
-      <MaxHitPoints>180</MaxHitPoints>
-      <Flammability>1.0</Flammability>
-      <Cleanliness>-15</Cleanliness>
-    </statBases>
     <size>(2,1)</size>
     <designationCategory>Production</designationCategory>
     <passability>PassThroughOnly</passability>
@@ -73,12 +66,13 @@
 
   <ThingDef ParentName="R3_Bench">
     <defName>R3_TableHarvesting</defName>
+    <thingClass>DoctorVanGogh.ReclaimReuseRecycle.Building_R3WorkTable</thingClass>     
     <label>harvesting table</label>
     <description>A worktable to harvest parts &amp; implants from deceased creatures &amp; mechanoids. Benefits from being placed near a refurbishment table.</description>
     <graphicData>
       <texPath>Things/Building/Production/HarvestingBench</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.5,1.25)</drawSize>
+      <drawSize>(2.33,1.16)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -88,9 +82,24 @@
     </graphicData>    
     <interactionCellOffset>(0,0,-1)</interactionCellOffset>    
     <recipes>
-      <li>ButcherCorpseFlesh</li>
-      <li>MakeKibble</li>
+      <li>R3_HarvestCorpseFlesh_Primitive</li>
+      <li>R3_HarvestCorpseFlesh_Advanced</li>
+      <li>R3_HarvestCorpseFlesh_Glittertech</li>
+      <li>R3_HarvestCorpseMechanoid_Primitive</li>
+      <li>R3_HarvestCorpseMechanoid_Advanced</li>
+      <li>R3_HarvestCorpseMechanoid_Glittertech</li>      
     </recipes>  
+    <researchPrerequisites>
+      <li>R3_BasicHarvesting</li>
+    </researchPrerequisites>     
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+      <MaxHitPoints>180</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Cleanliness>-15</Cleanliness>    
+      <MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
+      <MechanoidOperationSuccessChance>1</MechanoidOperationSuccessChance>
+    </statBases>
     <comps>
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
@@ -102,18 +111,21 @@
           <WorkTableWorkSpeedFactor>1.00</WorkTableWorkSpeedFactor>
         </statOffsets>
         <maxSimultaneous>1</maxSimultaneous>
+        <maxDistance>2</maxDistance>  
+        <mustBePlacedAdjacent>true</mustBePlacedAdjacent>
       </li>      
     </comps>    
   </ThingDef>
 
   <ThingDef ParentName="R3_Bench">
     <defName>R3_TableRefurbishment</defName>
+    <thingClass>Building_WorkTable</thingClass>     
     <label>refurbishment table</label>
     <description>A worktable to refurbish and clean reclaimed parts &amp; implants. Benefits from being placed near a harvesting table.</description>
     <graphicData>
       <texPath>Things/Building/Production/RefurbishmentBench</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.5,1.25)</drawSize>
+      <drawSize>(2.33,1.16)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -123,9 +135,22 @@
     </graphicData>  
     <interactionCellOffset>(1,0,-1)</interactionCellOffset>  
     <recipes>
-      <li>ButcherCorpseFlesh</li>
-      <li>MakeKibble</li>
-    </recipes>    
+      <li>R3_HarvestCorpseFlesh_Primitive</li>
+      <li>R3_HarvestCorpseFlesh_Advanced</li>
+      <li>R3_HarvestCorpseFlesh_Glittertech</li>
+      <li>R3_HarvestCorpseMechanoid_Primitive</li>
+      <li>R3_HarvestCorpseMechanoid_Advanced</li>
+      <li>R3_HarvestCorpseMechanoid_Glittertech</li>      
+    </recipes>  
+    <researchPrerequisites>
+      <li>R3_BasicRefurbishment</li>
+    </researchPrerequisites>   
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+      <MaxHitPoints>180</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Cleanliness>-15</Cleanliness>
+    </statBases>     
     <comps>
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
@@ -139,6 +164,8 @@
           <MechanoidOperationSuccessChance>0.5</MechanoidOperationSuccessChance>
         </statOffsets>
         <maxSimultaneous>1</maxSimultaneous>
+        <maxDistance>2</maxDistance>
+        <mustBePlacedAdjacent>true</mustBePlacedAdjacent>        
       </li>      
     </comps>    
   </ThingDef>  

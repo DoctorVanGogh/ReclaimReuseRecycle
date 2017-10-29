@@ -53,5 +53,9 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         public static StatCategoryDef ReclaimedItem;
         #endregion
 
+
+        #region ThingDef
+        public static ThingDef R3_TableHarvesting;
+        #endregion
     }
 }

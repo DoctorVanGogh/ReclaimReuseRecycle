@@ -9,6 +9,9 @@
 		<jobString>Harvesting a corpse</jobString>
 		<workAmount>2000</workAmount>
 		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.RecipeWorker_Harvest</workerClass>
+		<recipeUsers>
+			<li>R3_TableHarvesting</li>
+		</recipeUsers>		
 	</RecipeDef>
 
 	<RecipeDef Name="R3_HarvestCorpseFlesh" ParentName="R3_HarvestCorpse" Abstract="true">		
@@ -25,10 +28,7 @@
 				</filter>
 				<count>1</count>
 			</li>
-		</ingredients>			
-		<recipeUsers>
-			<li>TableButcher</li>
-		</recipeUsers>		
+		</ingredients>					
 	</RecipeDef>
 
 
@@ -47,9 +47,6 @@
 				<count>1</count>
 			</li>
 		</ingredients>		
-		<recipeUsers>
-			<li>TableMachining</li>
-		</recipeUsers>
 	</RecipeDef>
 
 
@@ -60,7 +57,7 @@
 		<label>harvest corpse (primitive)</label>
 		<description>Harvest a corpse for reclaimable parts &amp; implants of primitive complexity.</description>		
 		<workAmount>1000</workAmount>
-		<researchPrerequisite>BasicHarvesting</researchPrerequisite>
+		<researchPrerequisite>R3_BasicHarvesting</researchPrerequisite>
 		<fixedIngredientFilter>
 			<categories>
 				<li>Corpses</li>
@@ -82,7 +79,7 @@
 		<label>harvest corpse (advanced)</label>
 		<description>Harvest a corpse for reclaimable parts &amp; implants of advanced complexity or lower.</description>		
 		<workAmount>1500</workAmount>		
-		<researchPrerequisite>AdvancedHarvesting</researchPrerequisite>	
+		<researchPrerequisite>R3_AdvancedHarvesting</researchPrerequisite>	
 		<fixedIngredientFilter>
 			<categories>
 				<li>Corpses</li>
@@ -103,7 +100,7 @@
 		<label>harvest corpse (Glittertech)</label>
 		<description>Harvest a corpse for reclaimable parts &amp; implants of Glittertech complexity or lower.</description>		
 		<workAmount>2000</workAmount>		
-		<researchPrerequisite>GlittertechHarvesting</researchPrerequisite>
+		<researchPrerequisite>R3_GlittertechHarvesting</researchPrerequisite>
 		<fixedIngredientFilter>
 			<categories>
 				<li>Corpses</li>
@@ -125,7 +122,7 @@
 		<label>harvest corpse (primitive)</label>
 		<description>Harvest a corpse for reclaimable parts of primitive complexity.</description>		
 		<workAmount>1000</workAmount>		
-		<researchPrerequisite>BasicHarvesting</researchPrerequisite>
+		<researchPrerequisite>R3_BasicHarvesting</researchPrerequisite>
 		<fixedIngredientFilter>
 			<categories>
 				<li>CorpsesMechanoid</li>
@@ -143,7 +140,7 @@
 		<label>harvest corpse (advanced)</label>
 		<description>Harvest a corpse for reclaimable parts of advanced complexity or lower.</description>			
 		<workAmount>1500</workAmount>		
-		<researchPrerequisite>AdvancedHarvesting</researchPrerequisite>	
+		<researchPrerequisite>R3_AdvancedHarvesting</researchPrerequisite>	
 		<fixedIngredientFilter>
 			<categories>
 				<li>CorpsesMechanoid</li>
@@ -160,7 +157,7 @@
 		<label>harvest corpse (Glittertech)</label>
 		<description>Harvest a corpse for reclaimable parts of glittertech complexity or lower.</description>				
 		<workAmount>2000</workAmount>		
-		<researchPrerequisite>GlittertechHarvesting</researchPrerequisite>
+		<researchPrerequisite>R3_GlittertechHarvesting</researchPrerequisite>
 		<fixedIngredientFilter>
 			<categories>
 				<li>CorpsesMechanoid</li>
