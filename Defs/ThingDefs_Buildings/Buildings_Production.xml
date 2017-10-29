@@ -72,7 +72,7 @@
     <graphicData>
       <texPath>Things/Building/Production/HarvestingBench</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.33,1.16)</drawSize>
+      <drawSize>(2.5,1.25)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -125,7 +125,7 @@
     <graphicData>
       <texPath>Things/Building/Production/RefurbishmentBench</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.33,1.16)</drawSize>
+      <drawSize>(2.5,1.25)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
