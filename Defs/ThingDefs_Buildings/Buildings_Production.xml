@@ -81,14 +81,6 @@
       </damageData>
     </graphicData>    
     <interactionCellOffset>(0,0,-1)</interactionCellOffset>    
-    <recipes>
-      <li>R3_HarvestCorpseFlesh_Primitive</li>
-      <li>R3_HarvestCorpseFlesh_Advanced</li>
-      <li>R3_HarvestCorpseFlesh_Glittertech</li>
-      <li>R3_HarvestCorpseMechanoid_Primitive</li>
-      <li>R3_HarvestCorpseMechanoid_Advanced</li>
-      <li>R3_HarvestCorpseMechanoid_Glittertech</li>      
-    </recipes>  
     <researchPrerequisites>
       <li>R3_BasicHarvesting</li>
     </researchPrerequisites>     
@@ -135,12 +127,6 @@
     </graphicData>  
     <interactionCellOffset>(1,0,-1)</interactionCellOffset>  
     <recipes>
-      <li>R3_HarvestCorpseFlesh_Primitive</li>
-      <li>R3_HarvestCorpseFlesh_Advanced</li>
-      <li>R3_HarvestCorpseFlesh_Glittertech</li>
-      <li>R3_HarvestCorpseMechanoid_Primitive</li>
-      <li>R3_HarvestCorpseMechanoid_Advanced</li>
-      <li>R3_HarvestCorpseMechanoid_Glittertech</li>      
     </recipes>  
     <researchPrerequisites>
       <li>R3_BasicRefurbishment</li>

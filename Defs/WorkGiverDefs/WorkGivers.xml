@@ -2,7 +2,7 @@
 <Defs>
   <WorkGiverDef Abstract="True" Name="R3WorkGiver">
     <giverClass>WorkGiver_DoBill</giverClass>
-    <workType>Crafdting</workType>        
+    <workType>Crafting</workType>        
     <verb>work</verb>
     <gerund>working at</gerund>
     <requiredCapacities>

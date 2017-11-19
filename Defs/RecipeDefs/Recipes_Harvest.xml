@@ -4,8 +4,6 @@
 	<!-- prototypes -->
 
 	<RecipeDef Name="R3_HarvestCorpse" Abstract="true">
-		<label>harvest corpse</label>
-		<description>Harvest a corpse for reclaimable parts or implants.</description>
 		<jobString>Harvesting a corpse</jobString>
 		<workAmount>2000</workAmount>
 		<workerClass>DoctorVanGogh.ReclaimReuseRecycle.RecipeWorker_Harvest</workerClass>
@@ -14,7 +12,7 @@
 		</recipeUsers>		
 	</RecipeDef>
 
-	<RecipeDef Name="R3_HarvestCorpseFlesh" ParentName="R3_HarvestCorpse" Abstract="true">		
+	<RecipeDef Name="R3_HarvestCorpseFlesh" ParentName="R3_HarvestCorpse" Abstract="true">					
 		<workSpeedStat>MedicalOperationSpeed</workSpeedStat>
 		<workSkill>Medicine</workSkill>
 		<effectWorking>Surgery</effectWorking>
@@ -32,7 +30,7 @@
 	</RecipeDef>
 
 
-	<RecipeDef Name="R3_HarvestCorpseMechanoid" ParentName="R3_HarvestCorpse" Abstract="true">
+	<RecipeDef Name="R3_HarvestCorpseMechanoid" ParentName="R3_HarvestCorpse" Abstract="true">	
 		<workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
 		<workSkill>Crafting</workSkill>
 		<effectWorking>ButcherMechanoid</effectWorking>
@@ -119,8 +117,8 @@
 
 	<RecipeDef ParentName="R3_HarvestCorpseMechanoid">
 		<defName>R3_HarvestCorpseMechanoid_Primitive</defName>		
-		<label>harvest corpse (primitive)</label>
-		<description>Harvest a corpse for reclaimable parts of primitive complexity.</description>		
+		<label>harvest mechanoid (primitive)</label>
+		<description>Harvest a mechanoid corpse for reclaimable parts of primitive complexity.</description>		
 		<workAmount>1000</workAmount>		
 		<researchPrerequisite>R3_BasicHarvesting</researchPrerequisite>
 		<fixedIngredientFilter>
@@ -137,8 +135,8 @@
 
 	<RecipeDef ParentName="R3_HarvestCorpseMechanoid">
 		<defName>R3_HarvestCorpseMechanoid_Advanced</defName>		
-		<label>harvest corpse (advanced)</label>
-		<description>Harvest a corpse for reclaimable parts of advanced complexity or lower.</description>			
+		<label>harvest mechanoid (advanced)</label>
+		<description>Harvest a mechanoid corpse for reclaimable parts of advanced complexity or lower.</description>			
 		<workAmount>1500</workAmount>		
 		<researchPrerequisite>R3_AdvancedHarvesting</researchPrerequisite>	
 		<fixedIngredientFilter>
@@ -154,8 +152,8 @@
 
 	<RecipeDef ParentName="R3_HarvestCorpseMechanoid">
 		<defName>R3_HarvestCorpseMechanoid_Glittertech</defName>		
-		<label>harvest corpse (Glittertech)</label>
-		<description>Harvest a corpse for reclaimable parts of glittertech complexity or lower.</description>				
+		<label>harvest mechanoid (Glittertech)</label>
+		<description>Harvest a mechanoid corpse for reclaimable parts of glittertech complexity or lower.</description>				
 		<workAmount>2000</workAmount>		
 		<researchPrerequisite>R3_GlittertechHarvesting</researchPrerequisite>
 		<fixedIngredientFilter>

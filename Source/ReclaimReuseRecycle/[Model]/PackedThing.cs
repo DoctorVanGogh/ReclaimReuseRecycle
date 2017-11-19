@@ -9,6 +9,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         public ReclamationType? ReclamationType { get; set; }
 
         public Complexity Complexity { get; set;}
+
     }
 
 

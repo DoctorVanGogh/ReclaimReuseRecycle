@@ -21,11 +21,17 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
 
             // setup lookup Cache
-            ThingDefGenerator_Reclaimed.LookupCache = DefDatabase<ThingDef>.AllDefsListForReading
-                                                                           .OfType<PackedThingDef>()
-                                                                           .GroupBy(p => p.SpawnOnUnpack)
-                                                                           .ToDictionary(g => g.Key, g => g.ToArray());
+            var customElements = DefDatabase<ThingDef>.AllDefsListForReading
+                                                      .OfType<PackedThingDef>()
+                                                      .ToArray();
 
+            ThingDefGenerator_Reclaimed.LookupCache = customElements.GroupBy(p => p.SpawnOnUnpack)
+                                                                    .ToDictionary(g => g.Key, g => g.ToArray());
+
+            // work around resolvereferences bug
+            foreach (var packedThingDef in customElements) {
+                packedThingDef.ResolveReferences();
+            }
         }
     }
 }

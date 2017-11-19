@@ -30,7 +30,13 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
             HarmonyInstance harmony = HarmonyInstance.Create("DoctorVanGogh.ReclaimReuseRecycle");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
 
-            Util.Log("Initialized Harmony patches...");
+            Util.Log($"Initialized Harmony patches {Assembly.GetExecutingAssembly().GetName().Version}");
+
+
+            foreach (var t in typeof(Def).AllSubclasses()) {
+                Util.Log($"{t}"); 
+            }
+
 
             GetSettings<Settings>();
         }

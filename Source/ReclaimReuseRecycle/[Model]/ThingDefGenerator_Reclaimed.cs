@@ -84,33 +84,39 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         private static PackedThingDef GenerateImpliedPackedDef(ThingDef t, string defFormat, string descriptionKey, Color color,
                                                                ReclamationType type, TechLevel? researchTechlevel = null) {
             PackedThingDef d = new PackedThingDef {
-                                   thingClass = typeof(PackedThing),
-                                   defName = String.Format(CultureInfo.InvariantCulture, defFormat, t.defName),
-                                   label =  LanguageKeys.r3.R3_Label.Translate(t.LabelCap, color.ToHexColor(), type.Translate()),
-                                   description = descriptionKey.Translate(t.LabelCap),
-                                   graphicData = new GraphicData {
-                                                     texPath = "Things/Item/BodyPart/ArtificialOrgan",
-                                                     color = color,                                                     
-                                                     graphicClass = typeof(Graphic_Single)
-                                                 },
-                                   category = ThingCategory.Item,
-                                   useHitPoints = true,
-                                   selectable = true,
-                                   altitudeLayer = AltitudeLayer.Item,
-                                   tickerType = TickerType.Never,
-                                   alwaysHaulable = true,
-                                   isBodyPartOrImplant = false,
-                                   tradeTags = new List<string>(),
-                                   comps = new List<CompProperties> {
-                                               new CompProperties_Forbiddable()
-                                           },
-                                   thingCategories = new List<ThingCategoryDef>(),
-                                   pathCost = 10,
-                                   techHediffsTags = t.techHediffsTags != null ? new List<string>(t.techHediffsTags) : null,
-                                   statBases = new List<StatModifier>(),
-                                   SpawnOnUnpack = t,
-                                   ReclamationType = type,                                  
-                               };
+                                                      thingClass = typeof(PackedThing),
+                                                      defName = String.Format(CultureInfo.InvariantCulture, defFormat, t.defName),
+                                                      label = LanguageKeys.r3.R3_Label.Translate(t.LabelCap, color.ToHexColor(), type.Translate()),
+                                                      description = descriptionKey.Translate(t.LabelCap),
+                                                      graphicData = new GraphicData {
+                                                                                        texPath = "Things/Item/BodyPart/ArtificialOrgan",
+                                                                                        color = color,
+                                                                                        graphicClass = typeof(Graphic_Single)
+                                                                                    },
+                                                      category = ThingCategory.Item,
+                                                      useHitPoints = true,
+                                                      selectable = true,
+                                                      altitudeLayer = AltitudeLayer.Item,
+                                                      tickerType = TickerType.Never,
+                                                      alwaysHaulable = true,
+                                                      isBodyPartOrImplant = false,
+                                                      tradeTags = new List<string>(),
+                                                      comps = new List<CompProperties> {
+                                                                                           new CompProperties_Forbiddable()
+                                                                                       },
+                                                      thingCategories = new List<ThingCategoryDef>(),
+                                                      pathCost = 10,
+                                                      techHediffsTags = t.techHediffsTags != null ? new List<string>(t.techHediffsTags) : null,
+                                                      statBases = new List<StatModifier>(),
+                                                      SpawnOnUnpack = t,
+                                                      ReclamationType = type,
+
+                                                      // useless, since base objects in all likelyhood will not yet have data set, but let's copy stuff anyway (maybe custom things have special values set)
+                                                      soundDrop = t.soundDrop,
+                                                      soundImpactDefault = t.soundImpactDefault,
+                                                      soundInteract = t.soundInteract,
+                                                      soundPickup = t.soundPickup,
+                                                  };
 
             StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.MaxHitPoints,  50f);
             StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.DeteriorationRate, 2f);
