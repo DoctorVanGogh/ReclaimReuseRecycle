@@ -32,12 +32,6 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
             Util.Log($"Initialized Harmony patches {Assembly.GetExecutingAssembly().GetName().Version}");
 
-
-            foreach (var t in typeof(Def).AllSubclasses()) {
-                Util.Log($"{t}"); 
-            }
-
-
             GetSettings<Settings>();
         }
 
