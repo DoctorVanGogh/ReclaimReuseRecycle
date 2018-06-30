@@ -33,7 +33,11 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
             Util.Log($"Initialized Harmony patches {Assembly.GetExecutingAssembly().GetName().Version}");
 
             GetSettings<Settings>();
+
+            ContentPack = content;
         }
+
+        public ModContentPack ContentPack { get; private set; }
 
         public static string[] TagLines => _tagLines ?? (_tagLines = LanguageKeys.r3.R3_Tagline.Translate().Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries));
 

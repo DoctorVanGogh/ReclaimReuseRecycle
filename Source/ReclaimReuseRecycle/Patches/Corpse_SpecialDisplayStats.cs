@@ -7,7 +7,7 @@ using Verse;
 namespace DoctorVanGogh.ReclaimReuseRecycle {
 
     [HarmonyPatch(typeof(Corpse))]
-    [HarmonyPatch(nameof(Corpse.SpecialDisplayStats), PropertyMethod.Getter)]
+    [HarmonyPatch(nameof(Corpse.SpecialDisplayStats))]
     class Corpse_SpecialDisplayStats {
         public static void Postfix(Corpse __instance, ref IEnumerable<StatDrawEntry> __result) {
             var complexities = HarvestUtility.GetExtractableThings(__instance).Select(pd => pd.Complexity).ToArray();

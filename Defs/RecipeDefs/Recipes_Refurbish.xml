@@ -38,7 +38,7 @@
 			<li>
 				<filter>
 					<thingDefs>
-						<li>HerbalMedicine</li>
+						<li>MedicineHerbal</li>
 					</thingDefs>
 				</filter>
 				<count>1</count>
@@ -46,7 +46,7 @@
 		</ingredients>
 		<fixedIngredientFilter>
 			<thingDefs>
-				<li>HerbalMedicine</li>
+				<li>MedicineHerbal</li>
 			</thingDefs>
 			<categories>
 				<li>BodyPartsNonSterile_Primitive</li>
@@ -74,7 +74,7 @@
 			<li>
 				<filter>
 					<thingDefs>
-						<li>Medicine</li>
+						<li>MedicineIndustrial</li>
 					</thingDefs>
 				</filter>
 				<count>1</count>
@@ -82,7 +82,7 @@
 		</ingredients>
 		<fixedIngredientFilter>
 			<thingDefs>
-				<li>Medicine</li>
+				<li>MedicineIndustrial</li>
 			</thingDefs>
 			<categories>
 				<li>BodyPartsNonSterile_Advanced</li>
@@ -109,7 +109,7 @@
 			<li>
 				<filter>
 					<thingDefs>
-						<li>GlitterworldMedicine</li>
+						<li>MedicineUltratech</li>
 					</thingDefs>
 				</filter>
 				<count>1</count>
@@ -117,7 +117,7 @@
 		</ingredients>
 		<fixedIngredientFilter>
 			<thingDefs>
-				<li>GlitterworldMedicine</li>
+				<li>MedicineUltratech</li>
 			</thingDefs>
 			<categories>
 				<li>BodyPartsNonSterile_Glittertech</li>
@@ -145,7 +145,7 @@
 			<li>
 				<filter>
 					<thingDefs>
-						<li>HerbalMedicine</li>
+						<li>MedicineHerbal</li>
 					</thingDefs>
 				</filter>
 				<count>1</count>
@@ -169,7 +169,7 @@
 		</ingredients>
 		<fixedIngredientFilter>
 			<thingDefs>
-				<li>HerbalMedicine</li>
+				<li>MedicineHerbal</li>
 				<li>WoodLog</li>
 				<li>Cloth</li>
 			</thingDefs>
@@ -198,7 +198,7 @@
 			<li>
 				<filter>
 					<thingDefs>
-						<li>Medicine</li>
+						<li>MedicineIndustrial</li>
 					</thingDefs>
 				</filter>
 				<count>1</count>
@@ -214,7 +214,7 @@
 			<li>
 				<filter>
 					<thingDefs>
-						<li>Component</li>
+						<li>ComponentIndustrial</li>
 					</thingDefs>
 				</filter>
 				<count>1</count>
@@ -222,9 +222,9 @@
 		</ingredients>
 		<fixedIngredientFilter>
 			<thingDefs>
-				<li>Medicine</li>
+				<li>MedicineIndustrial</li>
 				<li>Steel</li>
-				<li>Component</li>
+				<li>ComponentIndustrial</li>
 			</thingDefs>
 			<categories>
 				<li>BodyPartsMangled_Advanced</li>
@@ -251,7 +251,7 @@
 			<li>
 				<filter>
 					<thingDefs>
-						<li>GlitterworldMedicine</li>
+						<li>MedicineUltratech</li>
 					</thingDefs>
 				</filter>
 				<count>1</count>
@@ -267,7 +267,7 @@
 			<li>
 				<filter>
 					<thingDefs>
-						<li>Component</li>
+						<li>ComponentIndustrial</li>
 					</thingDefs>
 				</filter>
 				<count>2</count>
@@ -275,9 +275,9 @@
 		</ingredients>
 		<fixedIngredientFilter>
 			<thingDefs>
-				<li>GlitterworldMedicine</li>
+				<li>MedicineUltratech</li>
 				<li>Plasteel</li>
-				<li>Component</li>
+				<li>ComponentIndustrial</li>
 			</thingDefs>
 			<categories>
 				<li>BodyPartsMangled_Glittertech</li>

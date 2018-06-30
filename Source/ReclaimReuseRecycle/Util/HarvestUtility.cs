@@ -12,7 +12,8 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
         internal static Thing TryExtractPart(Pawn worker, Corpse corpse, RaceProperties race, HediffSet diffSet, string label, BodyPartRecord part, ThingDef spawn) {
 
             float num = 1f;
-            StatDef operationStat = !race.IsMechanoid ? StatDefOf.MedicalSurgerySuccessChance : StatDefOf.MechanoidOperationSuccessChance;
+            //StatDef operationStat = !race.IsMechanoid ? StatDefOf.MedicalSurgerySuccessChance : StatDefOf.MechanoidOperationSuccessChance;
+            StatDef operationStat = StatDefOf.MedicalSurgerySuccessChance;
 
             // basic worker stat
             num *= worker.GetStatValue(operationStat, true);
@@ -117,7 +118,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                 injury.Part = bodyPartRecord;
                 injury.Severity = num;
 
-                p.health.AddHediff(injury, null, new DamageInfo(def, num, -1f, null, part));
+                p.health.AddHediff(injury, null, new DamageInfo(def, num, -1f, -1, null, part));
                 GenLeaving.DropFilthDueToDamage(p, num);
 
                 totalDamage -= num;

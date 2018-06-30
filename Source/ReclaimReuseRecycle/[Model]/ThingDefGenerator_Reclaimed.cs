@@ -26,6 +26,8 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
         public static Dictionary<ThingDef, PackedThingDef[]> LookupCache;
 
+        public static ModContentPack contentPack;
+
         [DebuggerHidden]
         public static IEnumerable<ThingDef> ImpliedReclaimableDefs() {
             // can't go ThingDef => isBodyPartOrImplant=true because vanilla "WoodLog" counts as BodyPart.... hrmpf
@@ -53,7 +55,8 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                                         Def = td,
                                         x?.MinResearchTechLevel
                                     };
-          
+
+            contentPack = LoadedModManager.GetMod<R3Mod>().ContentPack;
 
             foreach (var t in candidates.ToList()) {
                 yield return GenerateImpliedNonSterileDef(t.Def, t.MinResearchTechLevel);
@@ -89,7 +92,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                                                       label = LanguageKeys.r3.R3_Label.Translate(t.LabelCap, color.ToHexColor(), type.Translate()),
                                                       description = descriptionKey.Translate(t.LabelCap),
                                                       graphicData = new GraphicData {
-                                                                                        texPath = "Things/Item/BodyPart/ArtificialOrgan",
+                                                                                        texPath = "Things/Item/Health/HealthItemProsthetic",
                                                                                         color = color,
                                                                                         graphicClass = typeof(Graphic_Single)
                                                                                     },
@@ -99,7 +102,6 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                                                       altitudeLayer = AltitudeLayer.Item,
                                                       tickerType = TickerType.Never,
                                                       alwaysHaulable = true,
-                                                      isBodyPartOrImplant = false,
                                                       tradeTags = new List<string>(),
                                                       comps = new List<CompProperties> {
                                                                                            new CompProperties_Forbiddable()
@@ -116,7 +118,8 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                                                       soundImpactDefault = t.soundImpactDefault,
                                                       soundInteract = t.soundInteract,
                                                       soundPickup = t.soundPickup,
-                                                  };
+                                                      modContentPack = contentPack
+            };
 
             StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.MaxHitPoints,  50f);
             StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.DeteriorationRate, 2f);
@@ -189,7 +192,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                 case TechLevel.Spacer:
                     return Complexity.Advanced;
                 case TechLevel.Ultra:
-                case TechLevel.Transcendent:
+                case TechLevel.Archotech:
                     return Complexity.Glittertech;
                 case TechLevel.Undefined:
                 case null:
