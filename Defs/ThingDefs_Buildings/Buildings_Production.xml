@@ -90,7 +90,6 @@
       <Flammability>1.0</Flammability>
       <Cleanliness>-15</Cleanliness>    
       <MedicalSurgerySuccessChance>1</MedicalSurgerySuccessChance>
-      <MechanoidOperationSuccessChance>1</MechanoidOperationSuccessChance>
     </statBases>
     <comps>
       <li Class="CompProperties_AffectedByFacilities">
