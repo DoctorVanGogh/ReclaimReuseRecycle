@@ -55,6 +55,8 @@ Please report any errors or issues on the [github issue tracker](https://github.
 
 ---
 
+Polished textures by *Syrchalis*
+
 ## Powered by ![Harmony](https://github.com/pardeike/Harmony)
 
 <p align="center">
