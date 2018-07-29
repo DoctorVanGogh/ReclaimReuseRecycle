@@ -72,7 +72,9 @@
     <graphicData>
       <texPath>Things/Building/Production/HarvestingBench</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.34,1.5)</drawSize>
+      <shaderType>CutoutComplex</shaderType>      
+      <drawSize>(2.3125,1.5)</drawSize>
+      <allowFlip>false</allowFlip>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -80,7 +82,7 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>    
-    <interactionCellOffset>(0,0,-1)</interactionCellOffset>    
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
     <researchPrerequisites>
       <li>R3_BasicHarvesting</li>
     </researchPrerequisites>     
@@ -110,13 +112,14 @@
 
   <ThingDef ParentName="R3_Bench">
     <defName>R3_TableRefurbishment</defName>
-    <thingClass>Building_WorkTable</thingClass>     
+    <thingClass>Building_WorkTable</thingClass>
     <label>refurbishment table</label>
     <description>A worktable to refurbish and clean reclaimed parts &amp; implants. Benefits from being placed near a harvesting table.</description>
     <graphicData>
       <texPath>Things/Building/Production/RefurbishmentBench</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2.34,1.5)</drawSize>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2.3125,1.5)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
