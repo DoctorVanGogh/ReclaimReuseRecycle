@@ -26,11 +26,20 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                 Util.Error($"{nameof(PackedThing)}: {nameof(packedDef)} is null - missing a class definition in the xml files?");
         }
 
-        public override IEnumerable<StatDrawEntry> SpecialDisplayStats() {            
-            yield return new StatDrawEntry(R3DefOf.ReclaimedItem, LanguageKeys.r3.R3_OriginalThing.Translate(), packedDef.SpawnOnUnpack.LabelCap) {
-                             overrideReportText = packedDef.SpawnOnUnpack.description
-                         };
-            yield return new StatDrawEntry(R3DefOf.ReclaimedItem, LanguageKeys.r3.R3_Complexity.Translate(), this.packedDef.Complexity.ToString());           
+        public override IEnumerable<StatDrawEntry> SpecialDisplayStats() {
+            yield return new StatDrawEntry(
+                R3DefOf.ReclaimedItem,
+                LanguageKeys.r3.R3_OriginalThing.Translate(),
+                packedDef.SpawnOnUnpack.LabelCap,
+                packedDef.SpawnOnUnpack.description,
+                0
+            );
+            yield return new StatDrawEntry(
+                R3DefOf.ReclaimedItem, 
+                LanguageKeys.r3.R3_Complexity.Translate(), 
+                this.packedDef.Complexity.ToString(),
+                null,
+                0);           
         }
 
     }

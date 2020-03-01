@@ -92,7 +92,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                                                       label = LanguageKeys.r3.R3_Label.Translate(t.LabelCap, color.ToHexColor(), type.Translate()),
                                                       description = descriptionKey.Translate(t.LabelCap),
                                                       graphicData = new GraphicData {
-                                                                                        texPath = "Things/Item/Health/HealthItemProsthetic",
+                                                                                        texPath = "Things/Item/Health/HealthItem",
                                                                                         color = color,
                                                                                         graphicClass = typeof(Graphic_Single)
                                                                                     },

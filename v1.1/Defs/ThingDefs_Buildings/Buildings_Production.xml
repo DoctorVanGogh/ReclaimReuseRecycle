@@ -22,10 +22,6 @@
     <castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
     <canOverlapZones>false</canOverlapZones>
-		<building>
-			<workSpeedPenaltyOutdoors>true</workSpeedPenaltyOutdoors>
-			<workSpeedPenaltyTemperature>true</workSpeedPenaltyTemperature>
-		</building>
 		<comps>
 			<li>
 				<compClass>CompReportWorkSpeed</compClass>
@@ -33,7 +29,8 @@
 		</comps>
 		<placeWorkers>
 			<li>PlaceWorker_ReportWorkSpeedPenalties</li>
-    </placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>      
+		</placeWorkers>
   </ThingDef>
 
  <ThingDef Name="R3_Bench" ParentName="R3.BenchBase" Abstract="True">   

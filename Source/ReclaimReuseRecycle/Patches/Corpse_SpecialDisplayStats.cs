@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -17,7 +17,14 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
             var maxComplexity = complexities.Max();
 
-            __result = __result.Concat(new[] {new StatDrawEntry(R3DefOf.ReclaimedItem, LanguageKeys.r3.R3_MaxComplexity.Translate(), maxComplexity.ToString())});
+            __result = __result.Concat(new[] {
+                                                 new StatDrawEntry(
+                                                     R3DefOf.ReclaimedItem,
+                                                     LanguageKeys.r3.R3_MaxComplexity.Translate(),
+                                                     maxComplexity.ToString(),
+                                                     null,
+                                                     0)
+                                             });
         }
     }
 }

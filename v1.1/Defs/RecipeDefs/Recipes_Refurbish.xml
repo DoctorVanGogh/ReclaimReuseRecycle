@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<RecipeDef Name="R3_ReclaimPart" Abstract="true">
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>Surgery</effectWorking>
+		<soundWorking>Recipe_Surgery</soundWorking>		
+		<recipeUsers>
+			<li>R3_TableRefurbishment</li>
+		</recipeUsers>		
+	</RecipeDef>
+
+	<RecipeDef Name="R3_SterilizePart" Abstract="true" ParentName="R3_ReclaimPart">
+		<description>Meticulously clean a reclaimed body part and prepare it for reuse.</description>
+		<jobString>Sterilizing reclaimed part</jobString>
+	</RecipeDef>
+
+	<RecipeDef Name="R3_RefurbishPart" Abstract="true" ParentName="R3_ReclaimPart">
+		<description>Refurbish and clean a mangled body part and prepare it for reuse.</description>
+		<jobString>Refurbishing mangled part</jobString>
+    	<soundWorking>Recipe_Machining</soundWorking>					
+	</RecipeDef>
+
+	<RecipeDef ParentName="R3_SterilizePart">
+		<defName>R3_Sterilize_Primitive</defName>
+		<workAmount>400</workAmount>		
+		<label>Sterilize primitive body part.</label>
+		<ingredients>			
+			<li>
+				<filter>
+					<categories>
+						<li>BodyPartsNonSterile_Primitive</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MedicineHerbal</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>MedicineHerbal</li>
+			</thingDefs>
+			<categories>
+				<li>BodyPartsNonSterile_Primitive</li>
+			</categories>			
+		</fixedIngredientFilter>		
+		<skillRequirements>
+			<Crafting>6</Crafting>
+		</skillRequirements>
+		<researchPrerequisite>R3_BasicRefurbishment</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="R3_SterilizePart">
+		<defName>R3_Sterilize_Advanced</defName>
+		<workAmount>600</workAmount>		
+		<label>Sterilize advanced body part.</label>
+		<ingredients>			
+			<li>
+				<filter>
+					<categories>
+						<li>BodyPartsNonSterile_Advanced</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>MedicineIndustrial</li>
+			</thingDefs>
+			<categories>
+				<li>BodyPartsNonSterile_Advanced</li>
+			</categories>			
+		</fixedIngredientFilter>		
+		<skillRequirements>
+			<Crafting>4</Crafting>
+		</skillRequirements>
+		<researchPrerequisite>R3_AdvancedRefurbishment</researchPrerequisite>		
+	</RecipeDef>
+	<RecipeDef ParentName="R3_SterilizePart">
+		<defName>R3_Sterilize_Glittertech</defName>
+		<workAmount>800</workAmount>		
+		<label>Sterilize glittertech body part.</label>
+		<ingredients>			
+			<li>
+				<filter>
+					<categories>
+						<li>BodyPartsNonSterile_Glittertech</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MedicineUltratech</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>MedicineUltratech</li>
+			</thingDefs>
+			<categories>
+				<li>BodyPartsNonSterile_Glittertech</li>
+			</categories>			
+		</fixedIngredientFilter>		
+		<skillRequirements>
+			<Crafting>6</Crafting>
+		</skillRequirements>
+		<researchPrerequisite>R3_GlittertechRefurbishment</researchPrerequisite>		
+	</RecipeDef>	
+
+	<RecipeDef ParentName="R3_RefurbishPart">
+		<defName>R3_Refurbish_Primitive</defName>
+		<workAmount>800</workAmount>		
+		<label>Refurbish primitive body part.</label>
+		<ingredients>			
+			<li>
+				<filter>
+					<categories>
+						<li>BodyPartsMangled_Primitive</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MedicineHerbal</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Cloth</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>							
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>MedicineHerbal</li>
+				<li>WoodLog</li>
+				<li>Cloth</li>
+			</thingDefs>
+			<categories>
+				<li>BodyPartsMangled_Primitive</li>
+			</categories>			
+		</fixedIngredientFilter>		
+		<skillRequirements>
+			<Crafting>6</Crafting>			
+		</skillRequirements>
+		<researchPrerequisite>R3_BasicRefurbishment</researchPrerequisite>		
+	</RecipeDef>
+	<RecipeDef ParentName="R3_RefurbishPart">
+		<defName>R3_Refurbish_Advanced</defName>
+		<workAmount>1000</workAmount>		
+		<label>Refurbish advanced body part.</label>
+		<ingredients>			
+			<li>
+				<filter>
+					<categories>
+						<li>BodyPartsMangled_Advanced</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>							
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>MedicineIndustrial</li>
+				<li>Steel</li>
+				<li>ComponentIndustrial</li>
+			</thingDefs>
+			<categories>
+				<li>BodyPartsMangled_Advanced</li>
+			</categories>			
+		</fixedIngredientFilter>		
+		<skillRequirements>
+			<Crafting>8</Crafting>
+		</skillRequirements>
+		<researchPrerequisite>R3_AdvancedRefurbishment</researchPrerequisite>		
+	</RecipeDef>
+	<RecipeDef ParentName="R3_RefurbishPart">
+		<defName>R3_Refurbish_Glittertech</defName>
+		<workAmount>1200</workAmount>		
+		<label>Refurbish glittertech body part.</label>
+		<ingredients>			
+			<li>
+				<filter>
+					<categories>
+						<li>BodyPartsMangled_Glittertech</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MedicineUltratech</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>							
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>MedicineUltratech</li>
+				<li>Plasteel</li>
+				<li>ComponentIndustrial</li>
+			</thingDefs>
+			<categories>
+				<li>BodyPartsMangled_Glittertech</li>
+			</categories>			
+		</fixedIngredientFilter>		
+		<skillRequirements>			
+			<Crafting>10</Crafting>			
+		</skillRequirements>
+		<researchPrerequisite>R3_GlittertechRefurbishment</researchPrerequisite>		
+	</RecipeDef>	
+</Defs>

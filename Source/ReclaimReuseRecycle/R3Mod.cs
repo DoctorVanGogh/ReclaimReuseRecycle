@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -27,7 +27,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
 
         public R3Mod(ModContentPack content) : base(content) {
-            HarmonyInstance harmony = HarmonyInstance.Create("DoctorVanGogh.ReclaimReuseRecycle");
+            var harmony = new Harmony("DoctorVanGogh.ReclaimReuseRecycle");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
 
             Util.Log($"Initialized Harmony patches {Assembly.GetExecutingAssembly().GetName().Version}");
@@ -39,7 +39,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
         public ModContentPack ContentPack { get; private set; }
 
-        public static string[] TagLines => _tagLines ?? (_tagLines = LanguageKeys.r3.R3_Tagline.Translate().Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries));
+        public static string[] TagLines => _tagLines ?? (_tagLines = LanguageKeys.r3.R3_Tagline.Translate().RawText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries));
 
         public Texture2D Logo => _logo ?? (_logo = ContentFinder<Texture2D>.Get("UI/Recycle", true));
 
