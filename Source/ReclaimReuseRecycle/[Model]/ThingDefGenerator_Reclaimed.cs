@@ -86,6 +86,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
         private static PackedThingDef GenerateImpliedPackedDef(ThingDef t, string defFormat, string descriptionKey, Color color,
                                                                ReclamationType type, TechLevel? researchTechlevel = null) {
+
             PackedThingDef d = new PackedThingDef {
                                                       thingClass = typeof(PackedThing),
                                                       defName = String.Format(CultureInfo.InvariantCulture, defFormat, t.defName),
@@ -110,8 +111,8 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                                                       pathCost = 10,
                                                       techHediffsTags = t.techHediffsTags != null ? new List<string>(t.techHediffsTags) : null,
                                                       statBases = new List<StatModifier>(),
-                                                      SpawnOnUnpack = t,
                                                       ReclamationType = type,
+                                                      SpawnOnUnpack = t,
 
                                                       // useless, since base objects in all likelyhood will not yet have data set, but let's copy stuff anyway (maybe custom things have special values set)
                                                       soundDrop = t.soundDrop,
@@ -135,7 +136,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
             d.Complexity = GetComplexity(d, marketValue, d.techLevel, researchTechlevel);
 
-            DirectXmlCrossRefLoader.RegisterListWantsCrossRef(d.thingCategories, GetThingCategoryDef(t, d.Complexity, type).defName);                 // because.... "magic"
+            d.thingCategories.Add(GetThingCategoryDef(t, d.Complexity, type));                 
 
             return d;
         }

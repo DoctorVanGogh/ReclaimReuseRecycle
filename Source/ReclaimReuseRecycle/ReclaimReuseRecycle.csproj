@@ -68,7 +68,6 @@
     <Compile Include="Patches\Corpse_SpecialDisplayStats.cs" />
     <Compile Include="Patches\Debug.cs" />
     <Compile Include="Patches\DefGenerator_GenerateImpliedDefs_PostResolve.cs" />
-    <Compile Include="Patches\DefGenerator_GenerateImpliedDefs_PreResolve.cs" />
     <Compile Include="Patches\InjuryDebug.cs" />
     <Compile Include="R3Mod.Settings.cs" />
     <Compile Include="[Generated]\R3DefOf.cs" />
