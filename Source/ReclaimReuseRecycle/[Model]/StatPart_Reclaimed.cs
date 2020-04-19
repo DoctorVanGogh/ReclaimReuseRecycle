@@ -6,13 +6,11 @@ using RimWorld;
 using Verse;
 
 namespace DoctorVanGogh.ReclaimReuseRecycle {
-    public class StatPart_Reclaimed : StatPart {
+    class StatPart_Reclaimed : StatPart {
 
         public const float factorNonSterile = 0.65f;
         public const float factorMangled = 0.35f;
 
-        public StatPart_Reclaimed() {
-        }
 
         private static float? GetValueMultiplier(PackedThingDef def) {
             switch (def?.ReclamationType) {

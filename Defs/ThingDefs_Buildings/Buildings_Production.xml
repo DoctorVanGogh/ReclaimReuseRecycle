@@ -37,7 +37,7 @@
   </ThingDef>
 
  <ThingDef Name="R3_Bench" ParentName="R3.BenchBase" Abstract="True">   
-    <costStuffCount>75</costStuffCount>
+    <costStuffCount>75</costStuffCount> 
     <stuffCategories>
       <li>Woody</li>    
       <li>Metallic</li>
@@ -60,6 +60,7 @@
     <designationHotKey>Misc3</designationHotKey>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>      
 		</placeWorkers>
   </ThingDef>  
 

@@ -70,7 +70,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
                 PackedThing reclaimedThing = ingredients.OfType<PackedThing>().First();
 
-                result.Add(ThingMaker.MakeThing(reclaimedThing.packedDef.SpawnOnUnpack));
+                result.Add(ThingMaker.MakeThing(reclaimedThing.SpawnOnUnpack));
 
                 __result = result;
             }

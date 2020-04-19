@@ -50,7 +50,7 @@
 			</thingDefs>
 			<categories>
 				<li>BodyPartsNonSterile_Primitive</li>
-			</categories>			
+			</categories>		
 		</fixedIngredientFilter>		
 		<skillRequirements>
 			<Crafting>6</Crafting>
@@ -102,7 +102,7 @@
 				<filter>
 					<categories>
 						<li>BodyPartsNonSterile_Glittertech</li>
-					</categories>
+					</categories>				
 				</filter>
 				<count>1</count>
 			</li>
@@ -121,7 +121,7 @@
 			</thingDefs>
 			<categories>
 				<li>BodyPartsNonSterile_Glittertech</li>
-			</categories>			
+			</categories>				
 		</fixedIngredientFilter>		
 		<skillRequirements>
 			<Crafting>6</Crafting>

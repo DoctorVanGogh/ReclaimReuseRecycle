@@ -300,5 +300,8 @@ __pycache__/
 
 # End of https://www.gitignore.io/api/visualstudio,visualstudiocode
 
+*.code-workspace
+
 Source\TODO.md
 Assemblies\0Reloader.dll
+

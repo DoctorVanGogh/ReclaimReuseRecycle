@@ -10,11 +10,6 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
         [HarmonyPostfix]
         public static void Postfix() {
-
-            foreach (var def in ThingDefGenerator_Reclaimed.ImpliedReclaimableDefs()) {
-                DefGenerator.AddImpliedDef(def);
-            }
-
             // "patch" butcher creature recipe to disallow unharvested corpses by default
             foreach (var filter in new [] { R3DefOf.R3_AllowUnharvested_Primitive, R3DefOf.R3_AllowUnharvested_Advanced, R3DefOf.R3_AllowUnharvested_Glittertech }) {
                 R3DefOf.ButcherCorpseFlesh.defaultIngredientFilter.SetAllow(filter, false);
@@ -23,7 +18,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
             // "patch" market value stats to account for 'reclaimed' status
             StatDefOf.MarketValue.parts.Add(new StatPart_Reclaimed());
-            StatDefOf.MarketValue.ResolveReferences();
+
 
             // setup lookup Cache
             var customElements = DefDatabase<ThingDef>.AllDefsListForReading
@@ -33,6 +28,10 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
             ThingDefGenerator_Reclaimed.LookupCache = customElements.GroupBy(p => p.SpawnOnUnpack)
                                                                     .ToDictionary(g => g.Key, g => g.ToArray());
             
+            // work around for sound issues
+            foreach (var packedThingDef in customElements) {
+                packedThingDef.ResolveReferences();
+            }
         }
     }
 }

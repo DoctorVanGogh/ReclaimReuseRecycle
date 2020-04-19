@@ -25,6 +25,8 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
         private DateTime lastChange = DateTime.Now;
 
+        public const string PackageId = "doctorVanGogh.reclaimreuserecycle";
+
 
         public R3Mod(ModContentPack content) : base(content) {
             var harmony = new Harmony("DoctorVanGogh.ReclaimReuseRecycle");

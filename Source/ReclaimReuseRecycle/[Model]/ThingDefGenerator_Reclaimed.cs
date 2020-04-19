@@ -28,6 +28,7 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
         public static ModContentPack contentPack;
 
+
         [DebuggerHidden]
         public static IEnumerable<ThingDef> ImpliedReclaimableDefs() {
             // can't go ThingDef => isBodyPartOrImplant=true because vanilla "WoodLog" counts as BodyPart.... hrmpf
@@ -86,7 +87,6 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
 
         private static PackedThingDef GenerateImpliedPackedDef(ThingDef t, string defFormat, string descriptionKey, Color color,
                                                                ReclamationType type, TechLevel? researchTechlevel = null) {
-
             PackedThingDef d = new PackedThingDef {
                                                       thingClass = typeof(PackedThing),
                                                       defName = String.Format(CultureInfo.InvariantCulture, defFormat, t.defName),
@@ -111,34 +111,31 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                                                       pathCost = 10,
                                                       techHediffsTags = t.techHediffsTags != null ? new List<string>(t.techHediffsTags) : null,
                                                       statBases = new List<StatModifier>(),
+                                                      //SpawnOnUnpack = t,
                                                       ReclamationType = type,
-                                                      SpawnOnUnpack = t,
 
-                                                      // useless, since base objects in all likelyhood will not yet have data set, but let's copy stuff anyway (maybe custom things have special values set)
-                                                      soundDrop = t.soundDrop,
-                                                      soundImpactDefault = t.soundImpactDefault,
-                                                      soundInteract = t.soundInteract,
-                                                      soundPickup = t.soundPickup,
                                                       modContentPack = contentPack
             };
-
-            StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.MaxHitPoints,  50f);
-            StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.DeteriorationRate, 2f);
-            StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.Beauty, -8f);
+            d.SetStatBaseValue(StatDefOf.MaxHitPoints, 50f);
+            d.SetStatBaseValue(StatDefOf.DeteriorationRate, 2f);
+            d.SetStatBaseValue(StatDefOf.Beauty, -8f);
 
             float? marketValue = null;
 
             if (t.statBases.StatListContains(StatDefOf.MarketValue)) {
                 marketValue = t.statBases.GetStatValueFromList(StatDefOf.MarketValue, 0f);
-                StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.MarketValue, marketValue.Value);
+                d.SetStatBaseValue(StatDefOf.MarketValue, marketValue.Value);
             }
-            StatUtility.SetStatValueInList(ref d.statBases, StatDefOf.Mass, t.statBases.GetStatValueFromList(StatDefOf.Mass, 0.2f));
-
+            d.SetStatBaseValue(StatDefOf.Mass, t.statBases.GetStatValueFromList(StatDefOf.Mass, 0.2f));
             d.Complexity = GetComplexity(d, marketValue, d.techLevel, researchTechlevel);
 
-            d.thingCategories.Add(GetThingCategoryDef(t, d.Complexity, type));                 
+            DirectXmlCrossRefLoader.RegisterListWantsCrossRef<ThingCategoryDef>(d.thingCategories, GetThingCategoryDef(t, d.Complexity, type).defName, mayRequireMod: R3Mod.PackageId);
+
+            d.SpawnOnUnpack = t;
 
             return d;
+
+
         }
 
         private static ThingCategoryDef GetThingCategoryDef(ThingDef t, Complexity complexity, ReclamationType type) {
@@ -199,7 +196,22 @@ namespace DoctorVanGogh.ReclaimReuseRecycle {
                 case null:
                 default:
                     if (value == null) {
-                        Util.Warning($"{d.LabelCap} has no discernable or undefined techlevel, no techHediffsTags and no market value - defaulting to max Complexity.");
+                        try {
+                            var work = d.GetStatValueAbstract(StatDefOf.WorkToMake);
+                            if (work >= 7500) {
+                                // EPOE synthetic, bionic & advanced
+                                return Complexity.Glittertech;
+                            } else if (work >= 4000) {
+                                // EPOE simple & surrogate
+                                return Complexity.Advanced;
+                            } else if (work > 0) {
+                                // EPOE basic
+                                return Complexity.Primitive;
+                            }
+                        } catch {
+                        }
+
+                        Util.Warning($"{d.LabelCap} has no discernable or undefined techlevel, no techHediffsTags, no market value and no production work cost - defaulting to max Complexity.");
                         return Complexity.Glittertech;
                     }
                     if (value >= 1500)              // vanilla power claw price
